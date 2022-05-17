@@ -1,0 +1,67 @@
+package n2ex1;
+
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+		//Declaració de variables
+		Smartphone telefon = new Smartphone("iphone", "13");
+		int opcions;
+		String numtel;
+		
+		do {
+			
+			opcions= menuEntrada();
+			
+			if (opcions ==1) { //Sortir programa
+				System.out.println("Has sortit del programa.");	
+					
+			}else { 
+				switch (opcions){
+				
+				case 2://Alarma
+					System.out.println(telefon.alarma());
+					break;
+										
+				case 3: //Fotografia
+					System.out.println(telefon.fotografiar());
+					break;
+				case 4: //Trucar
+					numtel= introInfo("Introdueix el número de telefon que vols trucar: ");
+					System.out.println(telefon.trucar(numtel));
+					break;
+				}
+			}
+						
+		}while (opcions !=1);
+	}
+
+	//Metode menu info entrada
+	static int menuEntrada() {
+		int opcions = introInfoInt("Escull:\n1.Sortir de l'aplicació"
+								+ "\n2.Alarma "
+								+ "\n3.Foto"
+								+ "\n4.Trucar");
+		return opcions;
+	}
+	
+	//////ENTRADA DE DATOS
+	
+	//Metodes introduïr informació 
+	static String introInfo(String missatge) { 
+		Scanner input = new Scanner(System.in); 
+		System.out.println(missatge);
+		return input.nextLine();//Retorna String
+	}
+	
+	static int introInfoInt(String missatge) {
+		Scanner input = new Scanner(System.in); 
+		System.out.println(missatge);
+		return input.nextInt();//Retorna Int
+	}
+	
+}
+
+
