@@ -1,0 +1,27 @@
+package n2ex1;
+
+public class Telefon {
+
+	//Declarem atributs
+	private String marca;
+	private String model;
+	
+	//Metode constructor	
+	public Telefon (String marca, String model) {
+		this.marca = marca;
+		this.model = model;
+	}
+	
+	//Metodes propis
+	public String trucar(String numTel) {
+		return "S'està trucant al "+numTel;
+	}
+	
+	//Metode toString
+	public String toString() {
+		return "Marca Telefon: "+marca 
+				 +"\nModel Telefon: "+model; 
+				
+	}
+	
+}
