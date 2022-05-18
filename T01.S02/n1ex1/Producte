@@ -1,0 +1,22 @@
+package n1ex1;
+
+import java.util.ArrayList;
+
+public class Producte {
+	
+	//Declarem atributs
+	private String nom;
+	private float preu;
+	
+	//Metode constructor
+	public Producte (String nom, float preu) {
+		this.nom = nom;
+		this.preu = preu;
+	}
+	
+	//Metodes GETTERS i SETTERS
+	public double getPreu() {
+		return preu;
+	}
+
+}
