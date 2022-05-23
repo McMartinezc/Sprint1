@@ -1,0 +1,79 @@
+package n1ex1;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		// Declarem variables
+		ArrayList<Month> llistaMesos = new ArrayList<Month>();
+
+		// Creem objectes mesos i afegim a la ArrayList
+		llistaMesos.add(new Month("Gener"));
+		llistaMesos.add(new Month("Febrer"));
+		llistaMesos.add(new Month("Març"));
+		llistaMesos.add(new Month("Abril"));
+		llistaMesos.add(new Month("Maig"));
+		llistaMesos.add(new Month("Juny"));
+		llistaMesos.add(new Month("Juliol"));
+		llistaMesos.add(new Month("Setembre"));
+		llistaMesos.add(new Month("Octubre"));
+		llistaMesos.add(new Month("Novembre"));
+		llistaMesos.add(new Month("Desembre"));
+
+		// Imprimim llista del mesos sense el mes D'agost
+		printaArray(llistaMesos);
+
+		// Afegim el mes d'agost al arraylist
+		introArray(llistaMesos);
+
+		System.out.println("\n\nLlista actualitzada amb el mes introduït a l'ArrayList: ");
+		printaArray(llistaMesos); // Imprimim llista del mesos amb el mes D'agost
+
+		// Convertim ArrayList a HashSet i printem amb un for el llistat
+		Set<Month> hsetLlistaMesos = new HashSet<Month>(llistaMesos);// Afegim la llista al hashSet
+		hsetLlistaMesos.add(new Month("Desembre"));// Afegim desembre per duplicar
+		printaArraySet(hsetLlistaMesos);
+
+		// Iterator
+		Iterator<Month> iteradorMesos = hsetLlistaMesos.iterator();
+		System.out.println("\n\nEl llistat amb iterator és: ");
+		while (iteradorMesos.hasNext()) {
+			System.out.print(iteradorMesos.next() + " ");
+		}
+
+	}
+
+	////// FUNCIONALIDADES DEL PROGRAMA
+
+	// Metode per imprimir la llista amb el hashset amb un for each
+	static void printaArraySet(Set<Month> hsetLlistaMesos) {
+
+		System.out.println("\n\nEl llistat de mesos amb HashSet: ");
+
+		for (Month mesos : hsetLlistaMesos) {
+			System.out.print(mesos + " ");
+		}
+	}
+
+	// Metode per imprimir la llista ArrayList
+	static void printaArray(ArrayList<Month> llistaMesos) {
+
+		for (int i = 0; i < llistaMesos.size(); i++) {
+			System.out.print(llistaMesos.get(i).getName() + " ");
+		}
+	}
+
+	// Metode Introduïr Mes a arrayList en la posició 7
+	static ArrayList<Month> introArray(ArrayList<Month> llistaMesos) {
+
+		llistaMesos.add(7, new Month("Agost"));
+
+		return llistaMesos;
+	}
+
+}
