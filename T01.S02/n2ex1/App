@@ -1,0 +1,27 @@
+package n2ex1;
+
+import java.util.Scanner;
+
+import n1ex1.VendaBuidaException;
+
+public class App {
+
+	public static void main(String[] args) throws Entrada {
+
+		System.out.println(Entrada.llegirByte("Introdueix un valor: "));
+
+		System.out.println(Entrada.llegirInt("Introdueix un valor: "));
+
+		System.out.println(Entrada.llegirFloat("Introdueix un valor: "));
+
+		System.out.println(Entrada.llegirDouble("Introdueix un valor: "));
+
+		System.out.println(Entrada.llegirChar("Introdueix un caracter: "));
+
+		System.out.println(Entrada.llegirString("Introdueix una paraula: "));
+
+		System.out.println(Entrada.llegirSiNo("Introdueix un s / n: "));
+
+	}
+
+}
