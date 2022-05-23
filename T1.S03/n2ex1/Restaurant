@@ -1,1 +1,55 @@
+package n2ex1;
 
+import java.util.Objects;
+
+public class Restaurant {
+
+	//Declarem atributs propis 
+	private String nom;
+	private int puntuacio;
+
+	//Metode constructor 
+	public Restaurant (String nom, int puntuacio) {
+		this.nom = nom;
+		this.puntuacio= puntuacio;
+	}
+	
+	//Metodes GETTERS i SETTERS
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public int getPuntuacio() {
+		return puntuacio;
+	}
+
+	public void setPuntuacio(int puntuacio) {
+		this.puntuacio = puntuacio;
+	}
+
+	//Metode sobreescrits
+	public int hashCode() {
+		return Objects.hash(nom, puntuacio);
+	}
+
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Restaurant other = (Restaurant) obj;
+		return Objects.equals(nom, other.nom) || puntuacio == other.puntuacio; //Pot tenir el mateix nom pero diferent puntuació
+	}
+	//Metode toString
+	public String toString() {
+		return "Nom del restaurant: " +nom
+			+"\nPuntuació: " +puntuacio;
+	}	
+		
+}
