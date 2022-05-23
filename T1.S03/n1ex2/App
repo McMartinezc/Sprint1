@@ -1,0 +1,57 @@
+package n1ex2;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.ListIterator;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		// Declarem variables
+		List<Integer> llistaNums = new ArrayList<Integer>();
+		List<Integer> llistaNums2 = new ArrayList<Integer>();
+
+		// Afegim elements a la llista
+		llistaNums.add(1);
+		llistaNums.add(3);
+		llistaNums.add(5);
+		llistaNums.add(7);
+		llistaNums.add(9);
+
+		// Printem la primera llista creada
+		System.out.println("LlistaNums: " + llistaNums);
+
+		// Afegim els elements de la primera llista a la segona i la invertim
+		llistaNums2.addAll(llistaNums);
+		Collections.reverse(llistaNums2);
+
+		// Creem un iterator i recorreguem la llista
+		ListIterator iteradorLlista = llistaNums.listIterator();
+		ListIterator iteradorLlista2 = llistaNums2.listIterator();
+
+		System.out.println("Printem primera llista un cop convertida amb iterator: ");
+
+		while (iteradorLlista.hasNext()) {
+
+			System.out.println(iteradorLlista.next() + " ");
+		}
+
+		// Un cop afegida la primera llista a iterator, afegim a la segon llista
+		// convertida en iterator i la printem
+		iteradorLlista2.add(iteradorLlista);
+
+		System.out.println("Printem segona llista afegida com iterator: ");
+
+		while (iteradorLlista2.hasNext()) {
+
+			System.out.println(iteradorLlista2.next() + " ");
+		}
+
+		// Printem segona llista
+		System.out.print(llistaNums2);
+	}
+}
