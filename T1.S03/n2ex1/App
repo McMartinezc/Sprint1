@@ -1,1 +1,28 @@
+package n2ex1;
 
+import java.util.HashSet;
+import java.util.Set;
+
+public class App {
+
+	public static void main(String[] args) {
+		//Declarem variables
+		
+		Set<Restaurant> llistaRetaurants = new HashSet<Restaurant>();
+		
+		//Afegim objectes al HashSet
+		llistaRetaurants.add(new Restaurant("Restaurant 1", 1));
+		llistaRetaurants.add(new Restaurant("Restaurant 2", 2));
+		llistaRetaurants.add(new Restaurant("Restaurant 3", 3));
+		llistaRetaurants.add(new Restaurant("Restaurant 1", 1));
+		llistaRetaurants.add(new Restaurant("Restaurant 2", 6));
+		
+		//Recorrem HashSet amb un for each
+		for (Restaurant restaurant :llistaRetaurants ) {
+			System.out.println(restaurant);
+		}
+		
+		
+	}
+
+}
