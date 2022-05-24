@@ -1,3 +1,4 @@
+   
 package n1ex1;
 
 import java.util.ArrayList;
@@ -16,7 +17,16 @@ public class Venda {
 	
 	//Metode afegim Producte
 	public void afegirProducte (Producte producte) {
-		llistaProductes.add (producte);
+		
+		try {
+		
+			llistaProductes.add (producte);
+		
+		}catch (ArrayIndexOutOfBoundsException errorArray) {
+			
+			System.out.println(errorArray.getMessage());
+		
+		}
 	}
 
 	//Metode propis 
