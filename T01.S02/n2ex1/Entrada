@@ -148,20 +148,27 @@ public class Entrada extends Exception {
 	public static String llegirString(String missatge) {
 		boolean encontrado = false;
 		String cadena = "";
+		int llargCadena = 0;
 
 		do {
 
 			try {
-
+				
 				System.out.print(missatge);
 				cadena = input.nextLine();
+				llargCadena = cadena.length();
 				encontrado = true;
-
+				
+				if (llargCadena <=1) {
+	
+					throw new Entrada();
+				}
+				
 			} catch (Exception error) {
 				System.out.println("Ha d'introduïr una cadena. ");
-				input.next();
+		
 			}
-		} while (!encontrado);
+		} while (llargCadena <= 1);
 		return cadena;
 	}
 
