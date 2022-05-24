@@ -1,3 +1,4 @@
+   
 package n1ex1;
 
 import java.util.Scanner;
@@ -11,6 +12,7 @@ public class App {
 		Venda venda = new Venda(0);
 		Producte producte = new Producte("llet",1);
 		Producte producte2 = new Producte("poma",2);
+		
 		do {
 			
 			opcions= menuEntrada();
@@ -22,17 +24,26 @@ public class App {
 				switch (opcions){
 				
 				case 2://Afegir producte
+					
 					venda.afegirProducte(producte);	
 					venda.afegirProducte(producte2);
+							
 					break;
 										
 				case 3: //Calcul Total preu
+			
 					try {
+					
 						System.out.println(venda.calcularTotal());
-					  }catch (Exception e) {
-						  System.out.println("Per fer una venda primer has d’afegir productes");
-						  e.printStackTrace(); //Per imprimir error en vermell desde la classe Excepcio
-					  }
+					  
+					}catch (Exception error) {
+					
+						System.out.println(error.getMessage());
+						
+						error.printStackTrace(); //Per imprimir error en vermell desde la classe Excepcio
+					
+					}
+					
 					break;
 				}
 			}
