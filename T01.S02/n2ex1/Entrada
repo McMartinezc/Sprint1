@@ -63,7 +63,6 @@ public class Entrada extends Exception {
 			} catch (InputMismatchException error) {
 				System.out.println("Ha d'introduïr un valor tipus enter. ");
 				input.next();
-				// error.printStackTrace();
 			}
 		} while (!encontrado);
 		return valor;
@@ -83,7 +82,6 @@ public class Entrada extends Exception {
 			} catch (InputMismatchException error) {
 				System.out.println("Ha d'introduïr un valor tipus flotant. ");
 				input.next();
-				// error.printStackTrace();
 			}
 		} while (!encontrado);
 		return valor;
@@ -92,8 +90,8 @@ public class Entrada extends Exception {
 	//METODES AMB EXCEPTION
 
 	public static boolean llegirSiNo(String missatge) {
-		boolean encontrado = false, valorBoolea = false;
-		String valor;
+		boolean valorBoolea = false;
+		String valor="";
 
 		do {
 
@@ -101,23 +99,29 @@ public class Entrada extends Exception {
 
 				System.out.print(missatge);
 				valor = input.nextLine();
-				encontrado = true;
-				if (valor.equalsIgnoreCase("s")) {
-					valorBoolea = true;
-				} else if (valor.equalsIgnoreCase("n")) {
-					valorBoolea = false;
+				
+				if (!(valor.equalsIgnoreCase("s") ||  valor.equalsIgnoreCase("n"))) {
+					throw new Entrada();
 				}
+				
+			
 			} catch (Exception error) {
 				System.out.println("Ha d'introduïr un valor S / N ");
-				input.next();
-				// error.printStackTrace();
-
-			}
-		} while (!encontrado);
+			
+			} input.nextLine(); // Neteja buffer
+			
+		} while (!(valor.equalsIgnoreCase("s") || valor.equalsIgnoreCase("n")));
+		
+		if (valor.equalsIgnoreCase("s" )) {
+			valorBoolea = true;
+		} else if (valor.equalsIgnoreCase("n")) {
+			valorBoolea = false;
+		}
+		
 		return valorBoolea;
 	}
 
-	public static char llegirChar(String missatge) {
+	public static char llegirChar(String missatge){
 		char lletra = ' ';
 
 		do {
@@ -126,11 +130,14 @@ public class Entrada extends Exception {
 
 				System.out.print(missatge);
 				lletra = input.next().charAt(0);
+				
+				if (!((lletra >= 'a' && lletra <= 'z') || (lletra >= 'A' && lletra <= 'Z'))) {
+					throw new Entrada();
+				}
 
-			}catch (Exception error) {
+			}catch (Exception error)  {
 				System.out.println("Ha d'introduïr un caracter. ");
-				//input.next();
-				// error.printStackTrace();
+			
 			}input.nextLine(); // Neteja buffer
 		
 		} while (!((lletra >= 'a' && lletra <= 'z') || (lletra >= 'A' && lletra <= 'Z'))) ;
@@ -153,7 +160,6 @@ public class Entrada extends Exception {
 			} catch (Exception error) {
 				System.out.println("Ha d'introduïr una cadena. ");
 				input.next();
-				// error.printStackTrace();
 			}
 		} while (!encontrado);
 		return cadena;
