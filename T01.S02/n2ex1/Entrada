@@ -7,7 +7,8 @@ public class Entrada extends Exception {
 
 	static Scanner input = new Scanner(System.in);
 
-	// Metode Evalua si la dada introduïda és un byte
+	//METODES AMB INPUTMISMATCHEXCEPTION
+	
 	public static byte llegirByte(String missatge) {
 		boolean encontrado = false;
 		byte valor = 0;
@@ -27,6 +28,27 @@ public class Entrada extends Exception {
 		return valor;
 	}
 
+	public static double llegirDouble(String missatge) {
+		boolean encontrado = false;
+		double valor = 0;
+
+		do {
+
+			try {
+
+				System.out.print(missatge);
+				valor = input.nextDouble();
+				encontrado = true;
+			} catch (InputMismatchException error) {
+				System.out.println("Ha d'introduïr un valor tipus double. ");
+				input.next();
+				// error.printStackTrace();
+			}
+			input.nextLine(); // Neteja buffer
+		} while (!encontrado);
+		return valor;
+	}
+
 	public static int llegirInt(String missatge) {
 		boolean encontrado = false;
 		int valor = 0;
@@ -39,9 +61,9 @@ public class Entrada extends Exception {
 				valor = input.nextInt();
 				encontrado = true;
 			} catch (InputMismatchException error) {
-				System.out.println("Ha d'introduïr un valor tipus enter (–2.147.483.648 a 2.147.483.647). ");
-				// error.printStackTrace();
+				System.out.println("Ha d'introduïr un valor tipus enter. ");
 				input.next();
+				// error.printStackTrace();
 			}
 		} while (!encontrado);
 		return valor;
@@ -59,74 +81,15 @@ public class Entrada extends Exception {
 				valor = input.nextFloat();
 				encontrado = true;
 			} catch (InputMismatchException error) {
-				System.out.println("Ha d'introduïr un valor tipus decimal. ");
-				// error.printStackTrace();
+				System.out.println("Ha d'introduïr un valor tipus flotant. ");
 				input.next();
+				// error.printStackTrace();
 			}
 		} while (!encontrado);
 		return valor;
 	}
-
-	public static double llegirDouble(String missatge) {
-		boolean encontrado = false;
-		double valor = 0;
-
-		do {
-
-			try {
-
-				System.out.print(missatge);
-				valor = input.nextDouble();
-				encontrado = true;
-			} catch (InputMismatchException error) {
-				System.out.println("Ha d'introduïr un valor tipus decimal. ");
-				// error.printStackTrace();
-				input.next();
-			}
-		} while (!encontrado);
-		return valor;
-	}
-
-	public static char llegirChar(String missatge) {
-		boolean encontrado = false;
-		char lletra = 0;
-
-		do {
-
-			try {
-
-				System.out.print(missatge);
-				lletra = input.next().charAt(0);
-				encontrado = true;
-			} catch (Exception error) {
-				System.out.println("Ha d'introduïr un caracter. ");
-				// error.printStackTrace();
-				input.next();
-			}
-		} while (!encontrado);
-		return lletra;
-	}
-
-	public static String llegirString(String missatge) {
-		boolean encontrado = false;
-		String cadena = "";
-
-		do {
-
-			try {
-
-				System.out.print(missatge);
-				cadena = input.nextLine();
-				encontrado = true;
-
-			} catch (Exception error) {
-				System.out.println("Ha d'introduïr una cadena. ");
-				// error.printStackTrace();
-				input.next();
-			}
-		} while (!encontrado);
-		return cadena;
-	}
+	
+	//METODES AMB EXCEPTION
 
 	public static boolean llegirSiNo(String missatge) {
 		boolean encontrado = false, valorBoolea = false;
@@ -146,10 +109,54 @@ public class Entrada extends Exception {
 				}
 			} catch (Exception error) {
 				System.out.println("Ha d'introduïr un valor S / N ");
-				// error.printStackTrace();
 				input.next();
+				// error.printStackTrace();
+
 			}
 		} while (!encontrado);
 		return valorBoolea;
 	}
+
+	public static char llegirChar(String missatge) {
+		char lletra = ' ';
+
+		do {
+
+			try {
+
+				System.out.print(missatge);
+				lletra = input.next().charAt(0);
+
+			}catch (Exception error) {
+				System.out.println("Ha d'introduïr un caracter. ");
+				//input.next();
+				// error.printStackTrace();
+			}input.nextLine(); // Neteja buffer
+		
+		} while (!((lletra >= 'a' && lletra <= 'z') || (lletra >= 'A' && lletra <= 'Z'))) ;
+		
+		return lletra;
+	}
+
+	public static String llegirString(String missatge) {
+		boolean encontrado = false;
+		String cadena = "";
+
+		do {
+
+			try {
+
+				System.out.print(missatge);
+				cadena = input.nextLine();
+				encontrado = true;
+
+			} catch (Exception error) {
+				System.out.println("Ha d'introduïr una cadena. ");
+				input.next();
+				// error.printStackTrace();
+			}
+		} while (!encontrado);
+		return cadena;
+	}
+
 }
