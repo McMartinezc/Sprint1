@@ -1,4 +1,4 @@
-   
+
 package n1ex1;
 
 import java.util.ArrayList;
@@ -27,6 +27,25 @@ public class Venda {
 			System.out.println(errorArray.getMessage());
 		
 		}
+	}
+	//Metode buscar producte
+	public int buscarProducte (String nom) throws ArrayIndexOutOfBoundsException {
+		
+		boolean encontrado = false;
+		int i = 0, indexProducte = -1;
+		
+		while ((i<llistaProductes.size()) && (encontrado == false)) {
+			if (nom.equals(llistaProductes.get(i).getNom())){
+				indexProducte = i ;
+				encontrado=true;
+			}
+		}
+		
+		if(indexProducte ==-1) {
+			
+			throw new ArrayIndexOutOfBoundsException ("El producte no existeix");
+		}
+		return indexProducte; 
 	}
 
 	//Metode propis 
