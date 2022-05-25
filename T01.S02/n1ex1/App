@@ -21,6 +21,7 @@ public class App {
 				System.out.println("Has sortit del programa.");	
 					
 			}else { 
+				
 				switch (opcions){
 				
 				case 2://Afegir producte
@@ -45,6 +46,12 @@ public class App {
 					}
 					
 					break;
+					
+				case 4://Buscar producte
+					
+					venda.buscarProducte(null);
+					
+					break;
 				}
 			}
 						
@@ -55,7 +62,8 @@ public class App {
 	static int menuEntrada() {
 		int opcions = introInfoInt("Escull:\n1.Sortir de l'aplicació"
 								+ "\n2.Afegir producte "
-								+ "\n3.Calcul Total preu del productes");
+								+ "\n3.Calcul Total preu del productes"
+								+"\n4.Buscar productes");
 		return opcions;
 	}
 	
