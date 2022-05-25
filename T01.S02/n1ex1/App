@@ -1,4 +1,4 @@
-   
+
 package n1ex1;
 
 import java.util.Scanner;
@@ -6,79 +6,65 @@ import java.util.Scanner;
 public class App {
 
 	public static void main(String[] args) {
-	
-		//Declaració de variables
+
+		// Declaració de variables
 		int opcions;
 		Venda venda = new Venda(0);
-		Producte producte = new Producte("llet",1);
-		Producte producte2 = new Producte("poma",2);
-		
+		Producte producte = new Producte("llet", 1);
+		Producte producte2 = new Producte("poma", 2);
+
 		do {
-			
-			opcions= menuEntrada();
-			
-			if (opcions ==1) { //Sortir programa
-				System.out.println("Has sortit del programa.");	
-					
-			}else { 
+
+			opcions = menuEntrada();
+
+			if (opcions == 1) { // Sortir programa
+				System.out.println("Has sortit del programa.");
+
+			} else {
+
+				switch (opcions) {
 				
-				switch (opcions){
-				
-				case 2://Afegir producte
-					
-					venda.afegirProducte(producte);	
+				case 2:// Afegir producte
+					venda.afegirProducte(producte);
 					venda.afegirProducte(producte2);
-							
 					break;
-										
-				case 3: //Calcul Total preu
-			
+				case 3: // Calcul Total preu
 					try {
-					
 						System.out.println(venda.calcularTotal());
-					  
-					}catch (Exception error) {
-					
+					} catch (Exception error) {
 						System.out.println(error.getMessage());
-						
-						error.printStackTrace(); //Per imprimir error en vermell desde la classe Excepcio
-					
+						error.printStackTrace(); // Per imprimir error en vermell desde la classe Excepcio
 					}
-					
 					break;
-					
-				case 4://Buscar producte
-					
+
+				case 4:// Buscar producte
 					venda.buscarProducte(null);
-					
 					break;
 				}
 			}
-						
-		}while (opcions !=1);
+
+		} while (opcions != 1);
 	}
 
-	//Metode menu info entrada
+	// Metode menu info entrada
 	static int menuEntrada() {
-		int opcions = introInfoInt("Escull:\n1.Sortir de l'aplicació"
-								+ "\n2.Afegir producte "
-								+ "\n3.Calcul Total preu del productes"
-								+"\n4.Buscar productes");
+		int opcions = introInfoInt("Escull:\n1.Sortir de l'aplicació" + "\n2.Afegir producte "
+				+ "\n3.Calcul Total preu del productes" + "\n4.Buscar productes");
 		return opcions;
 	}
-	
-	//////ENTRADA DE DATOS
-	
-	//Metodes introduïr informació 
-	static String introInfo(String missatge) { 
-		Scanner input = new Scanner(System.in); 
+
+	////// ENTRADA DE DATOS
+
+	// Metodes introduïr informació
+	static String introInfo(String missatge) {
+		Scanner input = new Scanner(System.in);
 		System.out.println(missatge);
-		return input.nextLine();//Retorna String
+		return input.nextLine();// Retorna String
 	}
-	
+
 	static int introInfoInt(String missatge) {
-		Scanner input = new Scanner(System.in); 
+		Scanner input = new Scanner(System.in);
 		System.out.println(missatge);
-		return input.nextInt();//Retorna Int
+		return input.nextInt();// Retorna Int
 	}
 }
