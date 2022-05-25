@@ -38,7 +38,7 @@ public class App {
 					break;
 
 				case 4:// Buscar producte
-					venda.buscarProducte(null);
+					venda.buscarProducte("refresc");
 					break;
 				}
 			}
