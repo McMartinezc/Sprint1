@@ -20,7 +20,7 @@ public class Entrada extends Exception {
 				valor = input.nextByte();
 				encontrado = true;
 			} catch (InputMismatchException error) {
-				System.out.println("Error de format” ");
+				System.out.println("Error de format");
 				input.next();
 				// error.printStackTrace();
 			}
@@ -40,7 +40,7 @@ public class Entrada extends Exception {
 				valor = input.nextDouble();
 				encontrado = true;
 			} catch (InputMismatchException error) {
-				System.out.println("Error de format” ");
+				System.out.println("Error de format");
 				input.next();
 				// error.printStackTrace();
 			}
@@ -61,7 +61,7 @@ public class Entrada extends Exception {
 				valor = input.nextInt();
 				encontrado = true;
 			} catch (InputMismatchException error) {
-				System.out.println("Error de format” ");
+				System.out.println("Error de format");
 				input.next();
 			}
 		} while (!encontrado);
@@ -80,7 +80,7 @@ public class Entrada extends Exception {
 				valor = input.nextFloat();
 				encontrado = true;
 			} catch (InputMismatchException error) {
-				System.out.println("Error de format”");
+				System.out.println("Error de format");
 				input.next();
 			}
 		} while (!encontrado);
@@ -109,7 +109,7 @@ public class Entrada extends Exception {
 				encontrado  = true;		
 			}catch (Exception error) {
 				
-				System.out.println("Error a l'introduïr. ");
+				System.out.println("Error a l'introduïr.");
 
 				}
 		} while (!encontrado);
