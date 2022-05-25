@@ -1,4 +1,4 @@
-
+   
 package n1ex1;
 
 import java.util.ArrayList;
@@ -39,6 +39,7 @@ public class Venda {
 				indexProducte = i ;
 				encontrado=true;
 			}
+			i++;
 		}
 		
 		if(indexProducte ==-1) {
