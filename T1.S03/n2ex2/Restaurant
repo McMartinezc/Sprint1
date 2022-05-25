@@ -1,5 +1,6 @@
 package n2ex2;
 
+
 public class Restaurant implements Comparable<Restaurant> {
 
 	// Declarem atributs propis
@@ -24,15 +25,30 @@ public class Restaurant implements Comparable<Restaurant> {
 	public int getPuntuacio() {
 		return puntuacio;
 	}
-  
+	
+	
 	//Metode per poder comparar objectes de la llista i que surti ordenat per puntuació per ordre ascendent
 	public int compareTo(Restaurant rest) {
 		return (rest.puntuacio - this.puntuacio);
 	}
+	
+	//Metode per poder comparar objectes de la llista i que surti ordenat per nom per ordre ascendent
+	public int compareToNom(Restaurant rest) {
+		return (nom.compareToIgnoreCase(rest.getNom()));
+	} 
 
 	// Metode toString
 	public String toString() {
 		return "Nom: " + nom + " Puntuació: " + puntuacio;
 	}
 
+/*	PER FER UN COMPARE HEM DE CREAR UNA CLASSE APART
+ * 
+	public int compare(Restaurant o1, Restaurant o2) {
+		return o1.getPuntuacio()-o2.getPuntuacio();
+	}
+	public int compareNom(Restaurant o1, Restaurant o2){
+
+        return o1.nom.compareTo(o2.getNom());
+    }*/
 }
