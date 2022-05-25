@@ -13,7 +13,7 @@ public class App {
 		llistaRestaurants.add(new Restaurant("Restaurant 2", 9));
 		llistaRestaurants.add(new Restaurant("Restaurant 3", 10));
 		llistaRestaurants.add(new Restaurant("Restaurant 1", 7));
-		llistaRestaurants.add(new Restaurant("Restaurant 2", 6));
+		llistaRestaurants.add(new Restaurant("Restaurant 2", 9));
 		llistaRestaurants.add(new Restaurant("Bon dinar", 9));
 		llistaRestaurants.add(new Restaurant("Menja be", 10));
 
