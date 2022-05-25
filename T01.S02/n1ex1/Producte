@@ -15,6 +15,10 @@ public class Producte {
 	}
 	
 	//Metodes GETTERS i SETTERS
+	public String getNom() {
+		return nom;
+	}
+
 	public double getPreu() {
 		return preu;
 	}
