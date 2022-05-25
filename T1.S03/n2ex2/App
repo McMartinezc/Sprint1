@@ -1,1 +1,29 @@
+package n2ex2;
 
+import java.util.TreeSet;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+		TreeSet<Restaurant> llistaRestaurants= new TreeSet<Restaurant>();//Creem la llista  TreeSet
+		
+		//Afegim objectes al TreeSet
+		llistaRestaurants.add(new Restaurant("Restaurant 1", 8));
+		llistaRestaurants.add(new Restaurant("Restaurant 2", 9));
+		llistaRestaurants.add(new Restaurant("Restaurant 3", 10));
+		llistaRestaurants.add(new Restaurant("Restaurant 1", 7));
+		llistaRestaurants.add(new Restaurant("Restaurant 2", 6));
+		llistaRestaurants.add(new Restaurant("Bon dinar", 9));
+		llistaRestaurants.add(new Restaurant("Menja be", 10));
+
+			
+		//Recorrem TreeSet amb un for each per printar la llista
+		for (Restaurant restaurant :llistaRestaurants ) {
+			
+			System.out.println(restaurant);
+		}
+		
+	}
+
+}
