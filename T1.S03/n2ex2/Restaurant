@@ -1,1 +1,38 @@
+package n2ex2;
 
+public class Restaurant implements Comparable<Restaurant> {
+
+	// Declarem atributs propis
+	private String nom;
+	private int puntuacio;
+
+	// Metode constructor
+	public Restaurant(String nom, int puntuacio) {
+		this.nom = nom;
+		this.puntuacio = puntuacio;
+	}
+
+	// Metodes GETTERS i SETTERS
+	public String getNom() {
+		return nom;
+	}
+
+	public String getRestaurant() {
+		return this.nom + " " + this.puntuacio;
+	}
+
+	public int getPuntuacio() {
+		return puntuacio;
+	}
+  
+	//Metode per poder comparar objectes de la llista i que surti ordenat per puntuació per ordre ascendent
+	public int compareTo(Restaurant rest) {
+		return (rest.puntuacio - this.puntuacio);
+	}
+
+	// Metode toString
+	public String toString() {
+		return "Nom: " + nom + " Puntuació: " + puntuacio;
+	}
+
+}
