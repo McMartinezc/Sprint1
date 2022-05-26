@@ -1,8 +1,6 @@
 
 package n1ex1;
-
 import java.util.ArrayList;
-
 public class Venda {
 
 	// Declarem atributs
