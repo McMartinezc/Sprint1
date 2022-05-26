@@ -1,0 +1,67 @@
+ package n1ex3;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) throws IOException {
+	
+		Map<String, String> countries= new HashMap<String, String>();
+		
+			try {
+				File fitxer = new File("C:\\Users\\formacio\\Desktop\\repository\\countries.txt"); //indiquem la ruta del fitxer i creem un fitxer
+				FileReader fr = new FileReader(fitxer); //LLegeix el fitxer linia a linia
+				BufferedReader fitxerBuf = new BufferedReader(fr);
+						
+				String linea;
+				
+				while ((linea = fitxerBuf.readLine()) != null) {
+					String[] cadenas = linea.split("\t");
+					countries.put(cadenas[0], cadenas[1]);
+				}
+				fr.close();
+					System.out.println("Provincias importadas correctamente");
+			} catch (FileNotFoundException error) {
+				System.out.println("Fichero no encontrado");
+				error.printStackTrace();
+			} catch (IOException error) {
+				System.out.println("Error de E/S");
+				error.printStackTrace();
+			}
+
+		}
+		
+		
+		
+		
+		
+		/*	//Declarem variables
+		String linia = "";
+		
+		//Creem HashMap
+	    HashMap<String, String> countries = new HashMap<String, String>();
+	    
+		try {
+			
+			File fitxer = new File("C:\\Users\\formacio\\Desktop\\repository\\countries.txt"); //indiquem la ruta del fitxer i creem un fitxer
+
+			BufferedReader fitxerBuf = new BufferedReader(new FileReader(fitxer)); //LLegeix el fitxer linia a linia
+
+			while ((linia = fitxerBuf.readLine()) != null) {
+				System.out.println(linia);
+				countries.put(linia, linia);
+			}			
+		  }catch (FileNotFoundException error) {
+		      System.out.println("No es troba el fitxer.");
+		  }*/
+	
+	  
+	 }	
+	
