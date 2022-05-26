@@ -1,7 +1,5 @@
 package n1ex1;
 
-import java.util.ArrayList;
-
 public class Producte {
 
 	// Declarem atributs
