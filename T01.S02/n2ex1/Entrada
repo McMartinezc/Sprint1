@@ -41,7 +41,6 @@ public class Entrada {
 				encontrado = true;
 			} catch (InputMismatchException error) {
 				System.out.println("Error de format” ");
-				// error.printStackTrace();
 			}
 			input.nextLine(); // Neteja buffer
 		} while (!encontrado);
