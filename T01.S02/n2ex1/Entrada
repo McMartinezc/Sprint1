@@ -3,7 +3,7 @@ package n2ex1;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Entrada extends Exception {
+public class Entrada {
 
 	static Scanner input = new Scanner(System.in);
 
@@ -20,10 +20,10 @@ public class Entrada extends Exception {
 				valor = input.nextByte();
 				encontrado = true;
 			} catch (InputMismatchException error) {
-				System.out.println("Error de format");
-				input.next();
+				System.out.println("Error de format” ");
 				// error.printStackTrace();
 			}
+			input.nextLine(); // Neteja buffer
 		} while (!encontrado);
 		return valor;
 	}
@@ -40,8 +40,7 @@ public class Entrada extends Exception {
 				valor = input.nextDouble();
 				encontrado = true;
 			} catch (InputMismatchException error) {
-				System.out.println("Error de format");
-				input.next();
+				System.out.println("Error de format” ");
 				// error.printStackTrace();
 			}
 			input.nextLine(); // Neteja buffer
@@ -61,9 +60,9 @@ public class Entrada extends Exception {
 				valor = input.nextInt();
 				encontrado = true;
 			} catch (InputMismatchException error) {
-				System.out.println("Error de format");
-				input.next();
+				System.out.println("Error de format”");
 			}
+			input.nextLine(); // Neteja buffer
 		} while (!encontrado);
 		return valor;
 	}
@@ -80,9 +79,9 @@ public class Entrada extends Exception {
 				valor = input.nextFloat();
 				encontrado = true;
 			} catch (InputMismatchException error) {
-				System.out.println("Error de format");
-				input.next();
+				System.out.println("Error de format”");
 			}
+			input.nextLine(); // Neteja buffer
 		} while (!encontrado);
 		return valor;
 	}
@@ -100,23 +99,21 @@ public class Entrada extends Exception {
 
 				System.out.print(missatge);
 				lletra = input.next().charAt(0);
-				
-				if (lletra == 's' || lletra =='S') {
+
+				if (lletra == 's' || lletra == 'S') {
 					valorBoolea = true;
-				} else if (lletra == 'n' || lletra =='N') {
+				} else if (lletra == 'n' || lletra == 'N') {
 					valorBoolea = false;
 				}
-				encontrado  = true;		
-			}catch (Exception error) {
-				
-				System.out.println("Error a l'introduïr.");
-
-				}
+				encontrado = true;
+			} catch (Exception error) {
+				System.out.println("Error a l'introduïr. ");
+			}
+			input.nextLine(); // Neteja buffer
 		} while (!encontrado);
 
 		return valorBoolea;
 	}
-	  
 
 	public static char llegirChar(String missatge) {
 		char lletra = ' ';
@@ -128,14 +125,13 @@ public class Entrada extends Exception {
 
 				System.out.print(missatge);
 				lletra = input.next().charAt(0);
-				encontrado  = true;
-				
+				encontrado = true;
+
 			} catch (Exception error) {
 				System.out.println("Ha d'introduïr un caracter. ");
 
 			}
 			input.nextLine(); // Neteja buffer
-
 		} while (!encontrado);
 
 		return lletra;
@@ -144,7 +140,6 @@ public class Entrada extends Exception {
 	public static String llegirString(String missatge) {
 		boolean encontrado = false;
 		String cadena = "";
-
 
 		do {
 
@@ -158,6 +153,7 @@ public class Entrada extends Exception {
 				System.out.println("Ha d'introduïr una cadena. ");
 
 			}
+			input.nextLine(); // Neteja buffer
 		} while (!encontrado);
 		return cadena;
 	}
