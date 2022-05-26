@@ -23,11 +23,11 @@ public class App {
 				String linea;
 				
 				while ((linea = fitxerBuf.readLine()) != null) {
-					String[] cadenas = linea.split("\t");
-					countries.put(cadenas[0], cadenas[1]);
+					String[] cadenas = linea.split(" ");
+					countries.put(linea, linea);
 				}
 				fr.close();
-					System.out.println("Provincias importadas correctamente");
+					System.out.println("Fitxer importat correctamente");
 			} catch (FileNotFoundException error) {
 				System.out.println("Fichero no encontrado");
 				error.printStackTrace();
@@ -35,10 +35,13 @@ public class App {
 				System.out.println("Error de E/S");
 				error.printStackTrace();
 			}
+			
+			for (HashMap.Entry<String, String> entry : countries.entrySet()) {
+	            System.out.printf(" ", entry.getKey(), entry.getValue());
 
-		}
+			}
 		
-		
+	}
 		
 		
 		
@@ -64,4 +67,3 @@ public class App {
 	
 	  
 	 }	
-	
