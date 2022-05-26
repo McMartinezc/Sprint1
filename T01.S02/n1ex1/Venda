@@ -1,55 +1,59 @@
-   
+
 package n1ex1;
 
 import java.util.ArrayList;
 
 public class Venda {
-	
-	//Declarem atributs
+
+	// Declarem atributs
 	private float preuTotal;
-	private ArrayList <Producte> llistaProductes;
-	
-	//Metodes Contructors
-	public Venda (float preuTotal) {
+	private ArrayList<Producte> llistaProductes;
+
+	// Metodes Contructors
+	public Venda(float preuTotal) {
 		this.preuTotal = preuTotal;
-		llistaProductes= new ArrayList<Producte>();
+		llistaProductes = new ArrayList<Producte>();
 	}
-	//Metodes GETTERS i SETTERS
+
+	// Metodes GETTERS i SETTERS
 	public ArrayList<Producte> getLlistaProductes() {
 		return llistaProductes;
 	}
 
-	//Metode afegim Producte
-	public void afegirProducte (Producte producte) {	
-		llistaProductes.add (producte);
+	// Metode afegim Producte
+	public void afegirProducte(Producte producte) {
+
+		llistaProductes.add(producte);
+
 	}
 
-	//Metode buscar producte
-	public int buscarProducte (String nom){
+	// Metode buscar producte
+	public int buscarProducte(String nom) {
+
 		boolean encontrado = false;
 		int i = 0, indexProducte = -1;
-		
-		while ((i<llistaProductes.size()) && (encontrado == false)) {
-			if (nom.equals(llistaProductes.get(i).getNom())){
-				indexProducte = i ;
-				encontrado=true;
+
+		while ((i < llistaProductes.size()) && (encontrado == false)) {
+			if (nom.equals(llistaProductes.get(i).getNom())) {
+				indexProducte = i;
+				encontrado = true;
 			}
 			i++;
 		}
-		
-		return indexProducte; 
+
+		return indexProducte;
 	}
 
-	//Metode propis 
+	// Metode propis
 	public float calcularTotal() throws VendaBuidaException {
-		
-		if(llistaProductes.size()==0) {
-			//Cridem metode de la classe VendaBuidaException
-			throw new VendaBuidaException("Per fer una venda primer has d'afegir productes"); 
-		}else {
-			
-			for (int i=0; i<llistaProductes.size();i++) {
-				preuTotal +=llistaProductes.get(i).getPreu();
+
+		if (llistaProductes.size() == 0) {
+			// Cridem metode de la classe VendaBuidaException
+			throw new VendaBuidaException("Per fer una venda primer has d'afegir productes");
+		} else {
+
+			for (int i = 0; i < llistaProductes.size(); i++) {
+				preuTotal += llistaProductes.get(i).getPreu();
 			}
 		}
 		return preuTotal;
