@@ -12,36 +12,37 @@ import java.util.Scanner;
 public class App {
 
 	public static void main(String[] args) throws IOException {
-	
+		//Declarar variables
 		Map<String, String> countries= new HashMap<String, String>();
+		String linea;
+		String[]cadenas;
 		
-			try {
-				File fitxer = new File("C:\\Users\\formacio\\Desktop\\repository\\countries.txt"); //indiquem la ruta del fitxer i creem un fitxer
-				FileReader fr = new FileReader(fitxer); //LLegeix el fitxer linia a linia
-				BufferedReader fitxerBuf = new BufferedReader(fr);
+		try {
+				File fitxer = new File("C:\\Users\\formacio\\Desktop\\repository\\countries.txt"); //indiquem la ruta del fitxer
+				FileReader fr = new FileReader(fitxer); //Llegeix les el fitxer 
+				BufferedReader fitxerBuf = new BufferedReader(fr); //LLegeix el fitxer linia a linia
 						
-				String linea;
-				
+								
 				while ((linea = fitxerBuf.readLine()) != null) {
-					String[] cadenas = linea.split(" ");
+					cadenas = linea.split(" ");
 					countries.put(linea, linea);
 				}
+				
 				fr.close();
-					System.out.println("Fitxer importat correctamente");
+				
+					System.out.println("Fitxer importat correctament");
+					
 			} catch (FileNotFoundException error) {
 				System.out.println("Fichero no encontrado");
-				error.printStackTrace();
+		
 			} catch (IOException error) {
 				System.out.println("Error de E/S");
-				error.printStackTrace();
+			
 			}
 			
-			for (HashMap.Entry<String, String> entry : countries.entrySet()) {
-	            System.out.printf(" ", entry.getKey(), entry.getValue());
-
-			}
 		
 	}
+	
 		
 		
 		
