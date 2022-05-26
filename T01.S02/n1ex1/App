@@ -8,7 +8,8 @@ public class App {
 	public static void main(String[] args) {
 
 		// Declaració de variables
-		int opcions;
+		int opcions, indexProducte, i = 0;
+		String article;
 		Venda venda = new Venda(0);
 		Producte producte = new Producte("llet", 1);
 		Producte producte2 = new Producte("poma", 2);
@@ -23,14 +24,15 @@ public class App {
 			} else {
 
 				switch (opcions) {
-				
+
 				case 2:// Afegir producte
 					venda.afegirProducte(producte);
 					venda.afegirProducte(producte2);
+					System.out.println("Els productes s'han afegit.");
 					break;
 				case 3: // Calcul Total preu
 					try {
-						System.out.println(venda.calcularTotal());
+						System.out.println(venda.calcularTotal()); // Si no hi ha productes a la llista saltarà
 					} catch (Exception error) {
 						System.out.println(error.getMessage());
 						error.printStackTrace(); // Per imprimir error en vermell desde la classe Excepcio
@@ -38,8 +40,24 @@ public class App {
 					break;
 
 				case 4:// Buscar producte
-					venda.buscarProducte("refresc");
-					break;
+					article = introInfo("Quin producte vols buscar: ");
+					indexProducte = venda.buscarProducte(article);
+
+					/*
+					 * En aquest cas saltarà l'error IndexOutOfBoundsException, com que l'índex
+					 * comença a 0 si per exemple tenim 2 productes el primer producte estarà
+					 * guardat a i=0 i el segon a i=1; amb l'increment del index arribarà fins i=2
+					 * per tant complirà aquesta condició al while ja que <= i entrarà peró en
+					 * aquesta posició no existeix cap objecte emmagatzemat per tant imprimirà
+					 * l'error. Ja que l'índex en una arrayList és tamany de la llista -1.
+					 */
+					boolean encontrado = false;
+					while ((i <= venda.getLlistaProductes().size()) && (encontrado == false)) {
+						if (article.equals(venda.getLlistaProductes().get(indexProducte).getNom())) {
+							encontrado = true;
+						}
+						i++;
+					}
 				}
 			}
 
