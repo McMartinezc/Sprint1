@@ -14,23 +14,18 @@ public class Venda {
 		this.preuTotal = preuTotal;
 		llistaProductes= new ArrayList<Producte>();
 	}
-	
-	//Metode afegim Producte
-	public void afegirProducte (Producte producte) {
-		
-		try {
-		
-			llistaProductes.add (producte);
-		
-		}catch (ArrayIndexOutOfBoundsException errorArray) {
-			
-			System.out.println(errorArray.getMessage());
-		
-		}
+	//Metodes GETTERS i SETTERS
+	public ArrayList<Producte> getLlistaProductes() {
+		return llistaProductes;
 	}
+
+	//Metode afegim Producte
+	public void afegirProducte (Producte producte) {	
+		llistaProductes.add (producte);
+	}
+
 	//Metode buscar producte
-	public int buscarProducte (String nom) throws ArrayIndexOutOfBoundsException {
-		
+	public int buscarProducte (String nom){
 		boolean encontrado = false;
 		int i = 0, indexProducte = -1;
 		
@@ -42,10 +37,6 @@ public class Venda {
 			i++;
 		}
 		
-		if(indexProducte ==-1) {
-			
-			throw new ArrayIndexOutOfBoundsException ("El producte no existeix");
-		}
 		return indexProducte; 
 	}
 
