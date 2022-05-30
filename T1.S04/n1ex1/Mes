@@ -1,0 +1,96 @@
+n1ex1;
+
+import java.util.ArrayList;
+import java.util.Objects;
+
+public class Mes {
+
+	// Declaració atributs
+	private String name;
+	ArrayList<Mes> llistaMesos;
+
+	// Metode constructor
+	public Mes(String name) {
+		this.name = name;
+		llistaMesos = new ArrayList<Mes>();
+	}
+
+	// Metodes GETTERS i SETTERS
+	public String getName() { // Donem informació
+		return name;
+	}
+
+	public void setName(String name) {// Canvi d'informació
+		this.name = name;
+	}
+
+	public ArrayList<Mes> getLlistaMesos() {
+		return llistaMesos;
+	}
+
+	public void setLlistaMesos(ArrayList<Mes> llistaMesos) {
+		this.llistaMesos = llistaMesos;
+	}
+
+	// Metodes propis
+	// Metode buscar Mes
+	public int buscarMes(String name) { // varios clientes pueden tener el mismo vuelo pero el cliente no puede tener el
+										// mismo vuelo
+		int indexMes = -1;
+		int i = 0;
+		boolean encontrado = false;
+
+		while ((i < llistaMesos.size()) && (encontrado == false)) {
+			if (llistaMesos.get(i).getName() == name) {
+				indexMes = i;
+				encontrado = true;
+			}
+			i++;
+		}
+		return indexMes;
+	}
+
+	// Metode afegim Mes
+	public void afegirMes(Mes mes) {
+		llistaMesos.add(new Mes("Gener"));
+		llistaMesos.add(new Mes("Febrer"));
+		llistaMesos.add(new Mes("Març"));
+		llistaMesos.add(new Mes("Abril"));
+		llistaMesos.add(new Mes("Maig"));
+		llistaMesos.add(new Mes("Juny"));
+		llistaMesos.add(new Mes("Juliol"));
+		llistaMesos.add(new Mes("Setembre"));
+		llistaMesos.add(new Mes("Octubre"));
+		llistaMesos.add(new Mes("Novembre"));
+		llistaMesos.add(new Mes("Desembre"));
+	}
+
+	// tamany llista
+	public int tamanyLlista(ArrayList<Mes> llistaMesos) {
+		int tamany = llistaMesos.size();
+		return tamany;
+
+	}
+
+	// Metodes sobreescrits
+
+	public int hashCode() {
+		return Objects.hash(name);
+	}
+
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Mes other = (Mes) obj;
+		return Objects.equals(name, other.name);
+	}
+
+	public String toString() {
+		return name;
+	}
+
+}
