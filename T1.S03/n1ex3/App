@@ -24,7 +24,6 @@ public class App {
 																										// llegim
 			BufferedReader buffer_lectura = new BufferedReader(lectura); // Llegim lina a lina del fitxer
 
-			// Leemos linea a linea el fichero
 			while (buffer_lectura.readLine() != null) {
 				linea = buffer_lectura.readLine(); // Guardamos la linea en un String
 				// System.out.println(linea); // Imprimimos la linea
