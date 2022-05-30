@@ -1,0 +1,16 @@
+package n1ex1;
+
+import static org.junit.Assert.assertEquals;
+
+
+class Test {
+
+
+	public void testBuscaMes() {
+
+		//assertEquals("Agost", 8);
+		
+	}  
+
+
+}
