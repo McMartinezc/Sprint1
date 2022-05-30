@@ -1,0 +1,73 @@
+package n1ex1;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Set;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		// Declarem variables
+		ArrayList<Month> llistaMesos = new ArrayList<Month>();
+		String mes;
+		int indexMes;
+
+		// Creem objectes mesos i afegim a la ArrayList
+		llistaMesos.add(new Month("Gener"));
+		llistaMesos.add(new Month("Febrer"));
+		llistaMesos.add(new Month("Març"));
+		llistaMesos.add(new Month("Abril"));
+		llistaMesos.add(new Month("Maig"));
+		llistaMesos.add(new Month("Juny"));
+		llistaMesos.add(new Month("Juliol"));
+		llistaMesos.add(new Month("Agost"));
+		llistaMesos.add(new Month("Setembre"));
+		llistaMesos.add(new Month("Octubre"));
+		llistaMesos.add(new Month("Novembre"));
+		llistaMesos.add(new Month("Desembre"));
+
+		mes = introInfo("Quin mes vols buscar:");
+		indexMes= buscaMes(llistaMesos, mes);
+		System.out.println("El mes "+mes + " està a la posició " +indexMes);
+		
+		// Imprimim llista del mesos sense el mes D'agost
+		//printaArray(llistaMesos);
+	}
+
+	////// FUNCIONALIDADES DEL PROGRAMA
+	
+	static int buscaMes (ArrayList<Month> llistaMesos, String mes) {
+		int i= 0, indexMes = -1;
+		boolean encontrado = false;
+		
+		while (( i < llistaMesos.size()) && (encontrado == false)) {
+			if (llistaMesos.get(i).getName().equalsIgnoreCase(mes)) {
+				indexMes = i;
+				encontrado = true;
+			}
+			i++;
+		}
+		return indexMes;
+	}
+	
+	// Metode per imprimir la llista ArrayList
+	static void printaArray(ArrayList<Month> llistaMesos) {
+
+		for (int i = 0; i < llistaMesos.size(); i++) {
+			System.out.print(llistaMesos.get(i).getName() + " ");
+		}
+	}
+	
+	////// ENTRADA DE DATOS
+
+	// Metodes introduïr informació
+	static String introInfo(String missatge) {
+		Scanner input = new Scanner(System.in);
+		System.out.println(missatge);
+		return input.nextLine();// Retorna String
+	}
+
+
+
+}
