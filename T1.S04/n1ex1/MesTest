@@ -1,0 +1,41 @@
+package n1ex1;
+
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class MesTest {
+
+	// Declarem variables
+	ArrayList<Mes> llistaMesos;
+	ArrayList<Mes> arrayTest;
+
+	@Before
+	public void setUp() throws Exception {
+		llistaMesos = new ArrayList(arrayTest);
+	}
+
+	@Test
+	public void testBuscarMes() {
+		String esperado = "Agost";
+		String actualMes = arrayTest.get(7).getName();// guardo en actual mi array modificado
+		assertTrue(esperado.equalsIgnoreCase(actualMes));
+	}
+
+	@Test
+	public void testArrayNull() {
+		assertEquals(0, llistaMesos.size());
+		assertTrue(llistaMesos.isEmpty() == false);
+	}
+
+	@Test
+	public void testTamanyLlista() {
+
+		assertTrue(llistaMesos.size() == 12);
+
+	}
+
+}
