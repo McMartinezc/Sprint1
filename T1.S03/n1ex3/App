@@ -14,18 +14,15 @@ public class App {
 	public static void main(String[] args) {
 
 		// Declarem variables
-		String[] paraules = null;
 		String linea = null;
 		String resposta;
 		Map<String, String> llistaCiutats = new HashMap<String, String>();
 
 		try {
-			FileReader lectura = new FileReader("C:\\Users\\psyen\\Desktop\\T1.S03\\countries.txt"); // Fitxer que
-																										// llegim
-			BufferedReader buffer_lectura = new BufferedReader(lectura); // Llegim lina a lina del fitxer
+		
+			BufferedReader buffer_lectura = new BufferedReader(new FileReader("C:\\Users\\psyen\\Desktop\\T1.S03\\countries.txt")); // Llegim lina a lina del fitxer
 
-			while (buffer_lectura.readLine() != null) {
-				linea = buffer_lectura.readLine(); // Guardamos la linea en un String
+			while ((linea= buffer_lectura.readLine()) != null) {
 				// System.out.println(linea); // Imprimimos la linea
 				StringTokenizer sttoken = new StringTokenizer(linea, " ");
 				while (sttoken.hasMoreTokens()) {
@@ -36,8 +33,6 @@ public class App {
 				}
 
 			}
-			lectura.close();
-
 			System.out.println("Fitxer importat correctament");
 
 			// Controlant excepcions
