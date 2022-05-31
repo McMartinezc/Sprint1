@@ -4,10 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.PrintWriter;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.StringTokenizer;
@@ -17,54 +15,92 @@ public class App {
 	public static void main(String[] args) {
 
 		// Declarem variables
+		int punt, totalPunts = 0;
+		int contador = 0;
 		String linea = null;
-		String resposta;
-		String clau, valor;
+		String resposta = "", nom;
+		Object randomPais;
+		String pais = "", capital;
 		HashMap<String, String> llistaCiutats = new HashMap<String, String>();
-		//Convertim fitxer txt a HashMap i guardem la llista de països 
-		
+
 		try {
-		
-			BufferedReader buffer_lectura = new BufferedReader(new FileReader("C:\\Users\\formacio\\Desktop\\repository\\countries.txt")); // Llegim lina a lina del fitxer
 
-			while ((linea= buffer_lectura.readLine()) != null) {
-			// System.out.println(linea); // Imprimimos la linea
+			BufferedReader buffer_lectura = new BufferedReader(
+					new FileReader("C:\\Users\\psyen\\Desktop\\T1.S03\\countries.txt")); // Llegim lina a lina del
+																							// fitxer
+
+			while ((linea = buffer_lectura.readLine()) != null) {
+				// System.out.println(linea);
 				StringTokenizer sttoken = new StringTokenizer(linea, " ");
-				if(sttoken.hasMoreTokens()) {
-			
-					clau = sttoken.nextToken();
-					valor = sttoken.nextToken();
-					llistaCiutats.put(clau, valor);
-					System.out.println(clau );
-					System.out.println(valor);
+				if (sttoken.hasMoreTokens()) {
+					pais = sttoken.nextToken();
+					capital = sttoken.nextToken();
+					// System.out.println(pais + " " + capital);
+					llistaCiutats.put(pais, capital);
 				}
-			}
 
-			
+			}
 			System.out.println("Fitxer importat correctament");
 
 			// Controlant excepcions
 		} catch (FileNotFoundException error) {
-			System.out.println("catch1");
 			System.out.println(error.getMessage());
 		} catch (IOException error) {
-			System.out.println("catch2");
 			System.out.println(error.getMessage());
 		}
 
-		//Random Pais		
-		Random indexAleatori = new Random();
-		Object[] paisos = llistaCiutats.values().toArray();
-		Object randomPais = paisos[indexAleatori.nextInt(paisos.length)];
-		System.out.println(randomPais);
-		// Consulta al usuari i resposta
-		introInfo("Introdueix el teu nom: ");
-		resposta = introInfo("Introdueix la capital del país: ");
-		
-		System.out.println(llistaCiutats.containsValue(resposta));
-		
+		nom = introInfo("Introdueix el teu nom: ");
 
+		do {
+			randomPais = paisAleatori(llistaCiutats);
+			resposta = introInfo("Quina capital té " + randomPais);
+			punt = adivinaUsuari(llistaCiutats, resposta, randomPais);
+			totalPunts += punt;
+			contador++;
+		} while (contador < 10);
+
+		System.out.println("Puntuació total: " + totalPunts);
+
+		// Crear fitxer txt
+
+		try {
+			PrintWriter writer = new PrintWriter("C:\\Users\\psyen\\Desktop\\T1.S03\\Puntuació");
+			writer.println("Nom: " + nom);
+			writer.println("Puntuació: " + totalPunts);
+			writer.close();
+		} catch (Exception error) {
+			error.printStackTrace();
+		}
 	}
+
+	// Metode rep la resposta de l'usuari i busca al HashMap la coincidencia i suma
+	// punt si és correcte
+	static int adivinaUsuari(HashMap<String, String> llistaCiutats, String resposta, Object randomPais) {
+
+		int i = 0;
+		boolean encontrado = false;
+		int sumaPunt = 0;
+
+		while ((i < llistaCiutats.size()) && (encontrado == false)) {
+			if (llistaCiutats.containsKey(randomPais) && llistaCiutats.get(randomPais).equals(resposta)) {
+				sumaPunt += 1;
+				encontrado = true;
+			}
+			i++;
+
+		}
+		return sumaPunt;
+	}
+
+	// Metode on la HashMap on convertim a objecte amb el número aleatori
+	static Object paisAleatori(HashMap<String, String> llistaCiutats) {
+		Object[] llistaPaisAleatori = llistaCiutats.keySet().toArray();
+		Object randomPais = llistaPaisAleatori[new Random().nextInt(llistaPaisAleatori.length)];
+		// System.out.println(randomPais+" "+ llistaCiutats.get(randomPais));
+
+		return randomPais;
+	}
+
 	// Metodes sol.liciten info a l'usuari
 	static String introInfo(String missatge) {
 		Scanner input = new Scanner(System.in);
