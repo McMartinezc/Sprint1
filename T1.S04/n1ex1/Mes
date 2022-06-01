@@ -1,4 +1,4 @@
-n1ex1;
+package n1ex1;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -33,9 +33,10 @@ public class Mes {
 	}
 
 	// Metodes propis
+	
 	// Metode buscar Mes
-	public int buscarMes(String name) { // varios clientes pueden tener el mismo vuelo pero el cliente no puede tener el
-										// mismo vuelo
+	public int buscarMes(String name) { 
+										
 		int indexMes = -1;
 		int i = 0;
 		boolean encontrado = false;
@@ -59,6 +60,7 @@ public class Mes {
 		llistaMesos.add(new Mes("Maig"));
 		llistaMesos.add(new Mes("Juny"));
 		llistaMesos.add(new Mes("Juliol"));
+		llistaMesos.add(new Mes("Agost"));
 		llistaMesos.add(new Mes("Setembre"));
 		llistaMesos.add(new Mes("Octubre"));
 		llistaMesos.add(new Mes("Novembre"));
@@ -66,9 +68,9 @@ public class Mes {
 	}
 
 	// tamany llista
-	public int tamanyLlista(ArrayList<Mes> llistaMesos) {
-		int tamany = llistaMesos.size();
-		return tamany;
+	public int tamanyLlista() {
+	
+		return llistaMesos.size();
 
 	}
 
