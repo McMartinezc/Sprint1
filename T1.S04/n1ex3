@@ -1,0 +1,53 @@
+package n1ex3;
+
+import java.util.ArrayList;
+
+import n1ex1.Mes;
+
+public class Array {
+	
+	//Declarem variables
+	String nom;
+	ArrayList<String> llistaNoms ;
+	
+	// Metode constructor
+	public Array(String nom) {
+		this.nom = nom;
+		llistaNoms = new ArrayList<String>();
+	}
+	
+	//Metodes GETTERS i SETTERS
+	
+	public String getNom() { // Donem informació
+		return nom;
+	}
+
+	public void setName(String nom) {// Canvi d'informació
+		this.nom = nom;
+	}
+
+	public ArrayList<String> getLlistaNoms() {
+		return llistaNoms;
+	}
+	
+	//Metode elimini mentre fem un bucle		
+	public String eliminarElement (String name ) {//Entra per parametre el nom que vol buscar l'usuari
+		int indexNom = -1;
+		int i = 0;
+		boolean encontrado = false;
+		String missatge = "";
+
+		while ((i < llistaNoms.size()) && (encontrado == false)) {
+			if (llistaNoms.get(i).equalsIgnoreCase(name) ){
+				indexNom = i;
+				llistaNoms.remove(indexNom);
+				encontrado = true;
+				missatge = "Nom eliminat";
+				}
+			i++;
+			missatge ="No existeix aquest nom.";
+		}
+		return missatge;
+	}
+	
+}
