@@ -1,0 +1,36 @@
+package n1ex1;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class TestMes {
+
+	
+	@Test
+	public void testTamany() {
+		Mes mes = new Mes("Octubre");
+		
+		mes.afegirMes(mes);
+	
+		assertEquals(mes.tamanyLlista(),12);
+	}
+	
+	@Test
+	public void testArrayNula() {
+
+		Mes mes =null;
+		
+		assertEquals(mes,null);
+	}
+
+	@Test
+	public void testPosicio() {
+
+		Mes mes = new Mes("Octubre");
+		mes.afegirMes(mes);
+		// S'ha de posar 7 ja que a la posició 0 també hi un objecte guardat
+		assertEquals(mes.buscarMes("Agost"), 7);
+	}
+
+}
