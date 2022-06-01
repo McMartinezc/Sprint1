@@ -1,117 +1,124 @@
 package n1ex3;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.Random;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+ import java.io.BufferedReader;
+ import java.io.FileNotFoundException;
+ import java.io.FileReader;
+ import java.io.IOException;
+ import java.io.PrintWriter;
+ import java.util.HashMap;
+ import java.util.Random;
+ import java.util.Scanner;
+ import java.util.StringTokenizer;
 
-public class App {
+ public class App {
 
-	public static void main(String[] args) {
+ 	public static void main(String[] args) {
 
-		// Declarem variables
-		int punt, totalPunts = 0;
-		int contador = 0;
-		String linea = null;
-		String resposta = "", nom;
-		Object randomPais;
-		String pais = "", capital;
-		HashMap<String, String> llistaCiutats = new HashMap<String, String>();
+ 		// Declarem variables
+ 		int punt, totalPunts = 0;
+ 		int contador = 0;
+ 		String resposta = "", nom;
+ 		Object randomPais;
+ 		HashMap<String, String> llistaCiutats = new HashMap<String, String>();
+ 	
+ 		extreureFitxer(llistaCiutats);
 
-		try {
+ 		nom = introInfo("Introdueix el teu nom: ");
 
-			BufferedReader buffer_lectura = new BufferedReader(
-					new FileReader("C:\\Users\\psyen\\Desktop\\T1.S03\\countries.txt")); // Llegim lina a lina del
-																							// fitxer
+ 		do {
+ 			randomPais = paisAleatori(llistaCiutats);
+ 			resposta = introInfo("Quina capital té " + randomPais);
+ 			punt = adivinaUsuari(llistaCiutats, resposta, randomPais);
+ 			totalPunts += punt;
+ 			contador++;
+ 		} while (contador < 10);
 
-			while ((linea = buffer_lectura.readLine()) != null) {
-				// System.out.println(linea);
-				StringTokenizer sttoken = new StringTokenizer(linea, " ");
-				if (sttoken.hasMoreTokens()) {
-					pais = sttoken.nextToken();
-					capital = sttoken.nextToken();
-					// System.out.println(pais + " " + capital);
-					llistaCiutats.put(pais, capital);
-				}
+ 		System.out.println("Puntuació total: " + totalPunts);
+ 		
+ 		System.out.print(crearFitxer(nom,totalPunts));
+ 	
+ 	}
+ 	//Metode per extreure fitxe i convertir-lo en una HashMap
+ 	static void extreureFitxer(HashMap<String, String> llistaCiutats) {
+ 		String linea = null;
+ 		String resposta = "", nom;
+ 		Object randomPais;
+ 		String pais = "", capital;
+ 		
+ 		try {
 
-			}
-			System.out.println("Fitxer importat correctament");
+ 			BufferedReader buffer_lectura = new BufferedReader(
+ 					new FileReader("C:\\Users\\formacio\\Desktop\\repository\\countries.txt")); // Llegim lina a lina del
+ 																							// fitxer
 
-			// Controlant excepcions
-		} catch (FileNotFoundException error) {
-			System.out.println(error.getMessage());
-		} catch (IOException error) {
-			System.out.println(error.getMessage());
-		}
+ 			while ((linea = buffer_lectura.readLine()) != null) {
+ 				// System.out.println(linea);
+ 				StringTokenizer sttoken = new StringTokenizer(linea, " ");
+ 				if (sttoken.hasMoreTokens()) {
+ 					pais = sttoken.nextToken();
+ 					capital = sttoken.nextToken();
+ 					// System.out.println(pais + " " + capital);
+ 					llistaCiutats.put(pais, capital);
+ 				}
 
-		nom = introInfo("Introdueix el teu nom: ");
+ 			}
+ 			
+ 			System.out.println("Fitxer importat correctament");
 
-		do {
-			randomPais = paisAleatori(llistaCiutats);
-			resposta = introInfo("Quina capital té " + randomPais);
-			punt = adivinaUsuari(llistaCiutats, resposta, randomPais);
-			totalPunts += punt;
-			contador++;
-		} while (contador < 10);
+ 			// Controlant excepcions
+ 		} catch (FileNotFoundException error) {
+ 			System.out.println(error.getMessage());
+ 		} catch (IOException error) {
+ 			System.out.println(error.getMessage());
+ 		}
+ 	}
+ 	
+ 	//Metode Crear fitxer
+ 	static String crearFitxer(String nom, int totalPunts) {
+ 	
+ 		try {
+ 			PrintWriter writer = new PrintWriter("C:\\Users\\formacio\\Desktop\\repository\\Puntuació");
+ 			writer.println("Nom: " + nom);
+ 			writer.println("Puntuació: " + totalPunts);
+ 			writer.close();
+ 		} catch (Exception error) {
+ 			error.printStackTrace();
+ 		}
+ 		return "Fitxer creat";
+ 	}
 
-		System.out.println("Puntuació total: " + totalPunts);
-		
-		System.out.print(crearFitxer(nom,totalPunts));
-	
-	}
-	
-	//Metode Crear fitxer
-	static String crearFitxer(String nom, int totalPunts) {
-	
-		try {
-			PrintWriter writer = new PrintWriter("C:\\Users\\psyen\\Desktop\\T1.S03\\Puntuació");
-			writer.println("Nom: " + nom);
-			writer.println("Puntuació: " + totalPunts);
-			writer.close();
-		} catch (Exception error) {
-			error.printStackTrace();
-		}
-		return "Fitxer creat";
-	}
+ 	// Metode rep la resposta de l'usuari i busca al HashMap la coincidencia i suma
+ 	// punt si és correcte
+ 	static int adivinaUsuari(HashMap<String, String> llistaCiutats, String resposta, Object randomPais) {
 
-	// Metode rep la resposta de l'usuari i busca al HashMap la coincidencia i suma
-	// punt si és correcte
-	static int adivinaUsuari(HashMap<String, String> llistaCiutats, String resposta, Object randomPais) {
+ 		int i = 0;
+ 		boolean encontrado = false;
+ 		int sumaPunt = 0;
 
-		int i = 0;
-		boolean encontrado = false;
-		int sumaPunt = 0;
+ 		while ((i < llistaCiutats.size()) && (encontrado == false)) {
+ 			if (llistaCiutats.containsKey(randomPais) && llistaCiutats.get(randomPais).equals(resposta)) {
+ 				sumaPunt += 1;
+ 				encontrado = true;
+ 			}
+ 			i++;
 
-		while ((i < llistaCiutats.size()) && (encontrado == false)) {
-			if (llistaCiutats.containsKey(randomPais) && llistaCiutats.get(randomPais).equals(resposta)) {
-				sumaPunt += 1;
-				encontrado = true;
-			}
-			i++;
+ 		}
+ 		return sumaPunt;
+ 	}
 
-		}
-		return sumaPunt;
-	}
+ 	// Metode on la HashMap, agafem el key el convertim en objecte i apliquem random
+ 	static Object paisAleatori(HashMap<String, String> llistaCiutats) {
+ 		Object[] llistaPaisAleatori = llistaCiutats.keySet().toArray();
+ 		Object randomPais = llistaPaisAleatori[new Random().nextInt(llistaPaisAleatori.length)];
+ 		// System.out.println(randomPais+" "+ llistaCiutats.get(randomPais));
 
-	// Metode on la HashMap, agafem el key el convertim en objecte i apliquem random
-	static Object paisAleatori(HashMap<String, String> llistaCiutats) {
-		Object[] llistaPaisAleatori = llistaCiutats.keySet().toArray();
-		Object randomPais = llistaPaisAleatori[new Random().nextInt(llistaPaisAleatori.length)];
-		// System.out.println(randomPais+" "+ llistaCiutats.get(randomPais));
+ 		return randomPais;
+ 	}
 
-		return randomPais;
-	}
-
-	// Metodes sol.liciten info a l'usuari
-	static String introInfo(String missatge) {
-		Scanner input = new Scanner(System.in);
-		System.out.println(missatge);
-		return input.nextLine();// Retorna String
-	}
-}
-
+ 	// Metodes sol.liciten info a l'usuari
+ 	static String introInfo(String missatge) {
+ 		Scanner input = new Scanner(System.in);
+ 		System.out.println(missatge);
+ 		return input.nextLine();// Retorna String
+ 	}
+ }
