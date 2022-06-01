@@ -51,3 +51,20 @@ public class Array {
 	}
 	
 }
+//////////////////////////////////////////////////////
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class TestArray {
+
+	@Test
+	public void testEliminarElement (String name ) {
+		Array array = new Array (name);
+		array.eliminarElement(name);
+		
+		
+	}
+
+}
+
