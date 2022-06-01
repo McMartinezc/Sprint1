@@ -21,7 +21,7 @@ package n1ex3;
  		Object randomPais;
  		HashMap<String, String> llistaCiutats = new HashMap<String, String>();
  	
-  //Cridem Metodes
+   //Cridem Metodes
   
  		extreureFitxer(llistaCiutats);
 
