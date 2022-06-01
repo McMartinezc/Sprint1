@@ -7,7 +7,7 @@ public class Mes {
 
 	// Declaració atributs
 	private String name;
-	ArrayList<Mes> llistaMesos;
+	private ArrayList<Mes> llistaMesos;
 
 	// Metode constructor
 	public Mes(String name) {
