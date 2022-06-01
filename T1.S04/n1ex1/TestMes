@@ -34,3 +34,38 @@ class TestMes {
 	}
 
 }
+
+//////////////////////////////////////////////////////////
+
+
+class TestMes {
+
+	
+	@Test
+	public void testTamany() {
+		Mes mes =new Mes();
+		
+		mes.afegirMes("");
+	
+		assertEquals(mes.tamanyLlista(),12);
+	}
+	
+	@Test
+	public void testArrayNula() {
+
+		Mes mes = new Mes();
+		assertNull(mes); //Afirma que l'objecte es null
+	
+	}
+
+	@Test
+	public void testPosicio() {
+		Mes mes = new Mes();
+		
+		assertEquals(mes.buscarMes("Agost"),7);
+		// S'ha de posar 7 ja que a la posició 0 també hi un objecte guardat
+	
+		
+	}
+
+}
