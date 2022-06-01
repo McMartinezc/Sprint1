@@ -35,7 +35,7 @@ public class Mes {
 	// Metodes propis
 	
 	// Metode buscar Mes
-	public int buscarMes() { 
+	public int buscarMes(String mes)  {  //rep per parametre el mes que busca l'usuari
 										
 		int indexMes = -1;
 		int i = 0;
