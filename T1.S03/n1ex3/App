@@ -21,6 +21,8 @@ package n1ex3;
  		Object randomPais;
  		HashMap<String, String> llistaCiutats = new HashMap<String, String>();
  	
+  //Cridem Metodes
+  
  		extreureFitxer(llistaCiutats);
 
  		nom = introInfo("Introdueix el teu nom: ");
@@ -33,7 +35,7 @@ package n1ex3;
  			contador++;
  		} while (contador < 10);
 
- 		System.out.println("Puntuació total: " + totalPunts);
+ 		//System.out.println("Puntuació total: " + totalPunts);
  		
  		System.out.print(crearFitxer(nom,totalPunts));
  	
