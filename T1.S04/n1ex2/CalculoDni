@@ -1,0 +1,31 @@
+package n1ex2;
+
+import java.util.Scanner;
+
+public class CalculoDni {
+
+	public static void main(String[] args) {
+
+		// Declarem variables
+		String DNI = "TRWAGMYFPDXBNJZSQVHLCKE"; // Lletres del DNI en string
+		int numDNI;
+
+		numDNI = introNumDNI("Introdueix el teu número DNI: "); // Cridem metode perque el usuari introdueixi num DNI
+		System.out.println("La teva lletra és: " + calculRestoDNI(numDNI, DNI));
+
+	}
+
+	// Calcul resto del numDNI introduït
+	static char calculRestoDNI(int numDNI, String DNI) {
+		int resto = numDNI % 23;
+		return DNI.charAt(resto);
+	}
+
+	// Sol.litem al usuari num DNI
+	static int introNumDNI(String missatge) {
+		Scanner input = new Scanner(System.in);
+		System.out.println(missatge);
+		return input.nextInt();
+	}
+
+}
