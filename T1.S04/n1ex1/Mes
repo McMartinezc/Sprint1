@@ -15,6 +15,10 @@ public class Mes {
 		llistaMesos = new ArrayList<Mes>();
 	}
 
+	public Mes() {
+	
+	}
+
 	// Metodes GETTERS i SETTERS
 	public String getName() { // Donem informació
 		return name;
@@ -35,14 +39,14 @@ public class Mes {
 	// Metodes propis
 	
 	// Metode buscar Mes
-	public int buscarMes(String mes)  {  //rep per parametre el mes que busca l'usuari
+	public int buscarMes() { 
 										
 		int indexMes = -1;
 		int i = 0;
 		boolean encontrado = false;
 
 		while ((i < llistaMesos.size()) && (encontrado == false)) {
-			if (llistaMesos.get(i).getName() == name) {
+			if (llistaMesos.get(i).getName().equalsIgnoreCase(name)) {
 				indexMes = i;
 				encontrado = true;
 			}
@@ -51,8 +55,8 @@ public class Mes {
 		return indexMes;
 	}
 
-	// Metode afegim Mes
-	public void afegirMes(Mes mes) {
+	 
+	public void afegirMes() {
 		llistaMesos.add(new Mes("Gener"));
 		llistaMesos.add(new Mes("Febrer"));
 		llistaMesos.add(new Mes("Març"));
@@ -67,7 +71,7 @@ public class Mes {
 		llistaMesos.add(new Mes("Desembre"));
 	}
 
-	// tamany llista
+	// Tamany llista
 	public int tamanyLlista() {
 	
 		return llistaMesos.size();
