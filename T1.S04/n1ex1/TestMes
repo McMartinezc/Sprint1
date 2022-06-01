@@ -1,71 +1,34 @@
 package n1ex1;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 
 class TestMes {
-
 	
 	@Test
 	public void testTamany() {
 		Mes mes = new Mes("Octubre");
-		
-		mes.afegirMes(mes);
-	
-		assertEquals(mes.tamanyLlista(),12);
+		mes.afegirMes("Agost");
+		assertEquals(12, mes.tamanyLlista());
 	}
 	
 	@Test
 	public void testArrayNula() {
 
-		Mes mes =null;
+		Mes mes =new Mes ("");;
 		
-		assertEquals(mes,null);
+		assertNotNull(mes);
 	}
 
 	@Test
 	public void testPosicio() {
 
-		Mes mes = new Mes("Octubre");
-		mes.afegirMes(mes);
+		Mes mes = new Mes("Agost");
+		mes.afegirMes("Agost");
 		// S'ha de posar 7 ja que a la posició 0 també hi un objecte guardat
-		assertEquals(mes.buscarMes("Agost"), 7);
-	}
-
-}
-
-//////////////////////////////////////////////////////////
-
-
-class TestMes {
-
-	
-	@Test
-	public void testTamany() {
-		Mes mes =new Mes();
-		
-		mes.afegirMes("");
-	
-		assertEquals(mes.tamanyLlista(),12);
-	}
-	
-	@Test
-	public void testArrayNula() {
-
-		Mes mes = new Mes();
-		assertNull(mes); //Afirma que l'objecte es null
-	
-	}
-
-	@Test
-	public void testPosicio() {
-		Mes mes = new Mes();
-		
-		assertEquals(mes.buscarMes("Agost"),7);
-		// S'ha de posar 7 ja que a la posició 0 també hi un objecte guardat
-	
-		
+		assertEquals(7, mes.buscarMes("Agost"));
 	}
 
 }
