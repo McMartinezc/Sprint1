@@ -43,3 +43,12 @@ public class App {
 		
 	}
 }
+
+public class Main {
+public static void main (String[] args)
+{
+Integer[] intArray = {5, 7, 9, 11, 13, 15};
+System.out.println ( "First element: " + intArray[0]);
+System.out.println ( "Last element: " + intArray[-8]);
+}
+}
