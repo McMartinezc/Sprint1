@@ -1,0 +1,19 @@
+package n1ex3;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import n1ex1.Mes;
+
+class AppTest {
+
+	@Test
+	public void buscarArraytest() {
+		App app = new App();
+		app.afegirArray();
+		assert
+	}
+
+}
