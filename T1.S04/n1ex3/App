@@ -1,0 +1,45 @@
+package n1ex3;
+
+import java.util.ArrayList;
+
+public class App {
+	
+	//Declarem variables
+	private ArrayList<Integer> llistaNotes = new ArrayList<Integer>();
+	private int num;
+	
+	//Metode contructor
+	public App(ArrayList<Integer> llistaNotes, int num) {
+		this.llistaNotes = llistaNotes;
+		this.num = num;
+	}
+	
+	public App() {
+	
+	}
+	//Metodes GETTERS i SETTERS
+	public ArrayList<Integer> getLlistaNotes() {
+		return llistaNotes;
+	}
+
+	
+	
+	//Metode per guardar al array
+	public void afegirArray() { 
+		llistaNotes.add(5);
+		llistaNotes.add(10);
+		llistaNotes.add(8);
+	}
+
+	//Metode per buscar al array
+	public void buscarArray() {
+		boolean encontrado =false;
+		int i;
+		
+		for (i = 0; i<= llistaNotes.size(); i++) {
+			
+			System.out.println("La teva nota és: "+i);
+		}
+		
+	}
+}
