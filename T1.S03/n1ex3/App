@@ -1,5 +1,4 @@
-package n1ex3;
-
+ package n1ex3;
  import java.io.BufferedReader;
  import java.io.FileNotFoundException;
  import java.io.FileReader;
@@ -21,8 +20,6 @@ package n1ex3;
  		Object randomPais;
  		HashMap<String, String> llistaCiutats = new HashMap<String, String>();
  	
-   //Cridem Metodes
-  
  		extreureFitxer(llistaCiutats);
 
  		nom = introInfo("Introdueix el teu nom: ");
@@ -35,7 +32,7 @@ package n1ex3;
  			contador++;
  		} while (contador < 10);
 
- 		//System.out.println("Puntuació total: " + totalPunts);
+ 		System.out.println("Puntuació total: " + totalPunts);
  		
  		System.out.print(crearFitxer(nom,totalPunts));
  	
@@ -50,12 +47,12 @@ package n1ex3;
  		try {
 
  			BufferedReader buffer_lectura = new BufferedReader(
- 					new FileReader("C:\\Users\\formacio\\Desktop\\repository\\countries.txt")); // Llegim lina a lina del
- 																							// fitxer
+ 					new FileReader("\\countries.txt")); // Llegim lina a lina, l'arxiu s'ha de guardar al src
+ 																						
 
  			while ((linea = buffer_lectura.readLine()) != null) {
  				// System.out.println(linea);
- 				StringTokenizer sttoken = new StringTokenizer(linea, " ");
+ 				StringTokenizer sttoken = new StringTokenizer(linea);
  				if (sttoken.hasMoreTokens()) {
  					pais = sttoken.nextToken();
  					capital = sttoken.nextToken();
@@ -96,13 +93,10 @@ package n1ex3;
  		int i = 0;
  		boolean encontrado = false;
  		int sumaPunt = 0;
-
- 		while ((i < llistaCiutats.size()) && (encontrado == false)) {
- 			if (llistaCiutats.containsKey(randomPais) && llistaCiutats.get(randomPais).equals(resposta)) {
+ 			
+ 		if (llistaCiutats.containsKey(randomPais) && llistaCiutats.get(randomPais).equals(resposta)) {
  				sumaPunt += 1;
  				encontrado = true;
- 			}
- 			i++;
 
  		}
  		return sumaPunt;
