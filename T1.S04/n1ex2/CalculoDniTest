@@ -1,31 +1,48 @@
 package n1ex2;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import java.util.Arrays;
+import java.util.Collection;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
+@RunWith(value = Parameterized.class)
 
 class CalculoDniTest {
-	String DNI = "TRWAGMYFPDXBNJZSQVHLCKE"; // Lletres del DNI en string
-	
-	@BeforeEach
-	void setUp() throws Exception {
+
+	private static String DNI;
+	private int numDni;
+	private char lletra; // Resultat esperat
+
+	// Metode constructor
+	public CalculoDniTest(int numDni, char lletra) {
+		this.numDni = numDni;
+		this.lletra = lletra; // Resultat esperat
+		DNI = "TRWAGMYFPDXBNJZSQVHLCKE";
 	}
 
-	@AfterEach
-	void tearDown() throws Exception {
+	@Parameterized.Parameters
+	public static Collection llistaDnis() {
+
+		return Arrays.asList(new Object[][] {
+
+				{ 40527087, 'Y' },
+				/*
+				 * {41001310, DNI}, {40536070, DNI}, {70524563, DNI}, {40527087, DNI},
+				 * {41001310, DNI}, {40536070, DNI}, {70524563, DNI}, {40536070, DNI},
+				 * {70524563, DNI}
+				 */
+		});
+
 	}
 
 	@Test
-	public int testCalculRestoDNI(String DNI) {
-		return Integer.parseInt(DNI.substring(0), DNI.length()-1);
-		
+	public void testCalculoDniTest() {
+
+		assertEquals(lletra, CalculoDni.calculRestoDNI(numDni, DNI));
+
 	}
-	
-	@Test
-	public int validarDNI(String DNI) {
-		return Integer.parseInt(DNI.substring(0), DNI.length()-1);
-		
-	}
+
 }
