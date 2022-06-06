@@ -1,0 +1,20 @@
+package n1ex1;
+
+import java.io.File;
+import java.util.Arrays;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		File directori = new File("c:/"); // Creem objecte del directori a llistar en aquest cas la carpeta C
+		String[] llista = directori.list(); // El metode list retorna una Array de String amb el nom de tots els arxius
+											// i directoris que té l'objecte que hem creat
+		Arrays.sort(llista); // Ordena alfabéticament l'Array mitjançant el métode Arrays.sort
+
+		for (int i = 0; i < llista.length; i++) { // Pritem el contingut que té l'array per ordre
+			System.out.println(llista[i]);
+		}
+	}
+
+}
