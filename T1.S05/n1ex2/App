@@ -30,15 +30,13 @@ public class App {
 
 				if (llista[i].isDirectory()) {
 					System.out.print("D: " + llista[i] + " " + new Date(llista[i].lastModified()));// Si és de tipus
-																									// directori sortirà
-																									// una D
+															// directori sortirà una D i printa la data de modificació
+																		
 					fitxerRecursiu(llista[i]); // Cridem de nou al métode per si hi ha una carpeta que entri i faci el
 												// mateix
 
 				} else {
-					System.out.print("F: " + llista[i] + " " + new Date(llista[i].lastModified())); // Si és de tipus
-																									// fitxer sortirà
-																									// una F
+					System.out.print("F: " + llista[i] + " " + new Date(llista[i].lastModified())); // Si és de tipus fitxer sortirà una F  i printa la data
 
 				}
 			}
