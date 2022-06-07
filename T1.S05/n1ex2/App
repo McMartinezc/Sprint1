@@ -15,7 +15,7 @@ public class App {
 		
 		File[] llista = directori.listFiles(); 
 			
-		if (llista != null) {
+		if (llista != null) { //Comprova si la llista no és nul.la
 			for (int i = 0; i < llista.length; i++) { // Pritem el contingut que té l'array per ordre
 				System.out.println(separar +llista[i].getName());
 				if (llista[i].isDirectory()) {
