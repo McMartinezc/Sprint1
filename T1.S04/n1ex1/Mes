@@ -1,4 +1,4 @@
-
+package n1ex1;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -7,12 +7,12 @@ public class Mes {
 
 	// Declaració atributs
 	private String name;
-	private ArrayList<Mes> llistaMesos;
+	private ArrayList<String> llistaMesos;
 
 	// Metode constructor
 	public Mes(String name) {
 		this.name = name;
-		llistaMesos = new ArrayList<Mes>();
+		llistaMesos = new ArrayList<String>();
 	}
 
 	public Mes() {
@@ -28,13 +28,10 @@ public class Mes {
 		this.name = name;
 	}
 
-	public ArrayList<Mes> getLlistaMesos() {
+	public ArrayList<String> getLlistaMesos() {
 		return llistaMesos;
 	}
 
-	public void setLlistaMesos(ArrayList<Mes> llistaMesos) {
-		this.llistaMesos = llistaMesos;
-	}
 
 	// Metodes propis
 
@@ -46,7 +43,7 @@ public class Mes {
 		boolean encontrado = false;
 
 		while ((i < llistaMesos.size()) && (encontrado == false)) {
-			if (llistaMesos.get(i).getName().equalsIgnoreCase(name)) {
+			if (llistaMesos.get(i).equalsIgnoreCase(name)) {
 				indexMes = i;
 				encontrado = true;
 			}
@@ -56,18 +53,18 @@ public class Mes {
 	}
 
 	public void afegirMes(String name) {
-		llistaMesos.add(new Mes("Gener"));
-		llistaMesos.add(new Mes("Febrer"));
-		llistaMesos.add(new Mes("Març"));
-		llistaMesos.add(new Mes("Abril"));
-		llistaMesos.add(new Mes("Maig"));
-		llistaMesos.add(new Mes("Juny"));
-		llistaMesos.add(new Mes("Juliol"));
-		llistaMesos.add(new Mes("Agost"));
-		llistaMesos.add(new Mes("Setembre"));
-		llistaMesos.add(new Mes("Octubre"));
-		llistaMesos.add(new Mes("Novembre"));
-		llistaMesos.add(new Mes("Desembre"));
+		llistaMesos.add("Gener");
+		llistaMesos.add("Febrer");
+		llistaMesos.add("Març");
+		llistaMesos.add("Abril");
+		llistaMesos.add("Maig");
+		llistaMesos.add("Juny");
+		llistaMesos.add("Juliol");
+		llistaMesos.add("Agost");
+		llistaMesos.add("Setembre");
+		llistaMesos.add("Octubre");
+		llistaMesos.add("Novembre");
+		llistaMesos.add("Desembre");
 	}
 
 	// Tamany llista
@@ -77,26 +74,8 @@ public class Mes {
 
 	}
 
-	// Metodes sobreescrits
-
-	public int hashCode() {
-		return Objects.hash(name);
-	}
-
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Mes other = (Mes) obj;
-		return Objects.equals(name, other.name);
-	}
-
 	public String toString() {
 		return name;
 	}
 
 }
-
