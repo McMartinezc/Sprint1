@@ -1,6 +1,8 @@
 package n1ex3;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
@@ -10,55 +12,81 @@ public class App {
 
 	public static void main(String[] args) {
 
-		File directori = new File("C:\\Users\\formacio\\Desktop\\repository"); // Creem objecte del directori a llistar
-																				// d'una carpeta
-
+		File directori = new File("C:\\Users\\formacio\\Desktop\\repository\\nouFitxer"); // Creem objecte del directori a llistar
+																				// d'una carpet
 		fitxerRecursiu(directori);
-
-		System.out.println("Fitxer importat correctament");
-		
 		crearFitxer(directori);
 
 	}
 
+	// Metode per extreure directoris i fitxers
 	public static void fitxerRecursiu(File directori) {
 
-		File[] llista = directori.listFiles(); // El metode list retorna una Array de String amb el nom de tots els
+		File[] fitxers = directori.listFiles(); // El metode list retorna una Array de String amb el nom de tots els
 												// arxius i directoris que té l'objecte que hem creat
 
-		if (llista != null) { // Comprova si la llista no és nul.la
+		if (fitxers != null) { // Comprova si fitxer tipus array no és nul
 
-			for (int i = 0; i < llista.length; i++) { 
-				System.out.println(" " + llista[i].getName());
+			for (int i = 0; i < fitxers.length; i++) {
 
-				if (llista[i].isDirectory()) {
-					System.out.print("D: " + llista[i] + " " + new Date(llista[i].lastModified()));// Si és de tipus
-																									// directori sortirà
-																									// una D i printa la data de modificació
-					fitxerRecursiu(llista[i]); // Cridem de nou al métode per si hi ha una carpeta que entri i faci el
+				System.out.println(" " + fitxers[i]); // Printem el llistat que hi ha a la carpeta
+
+				if (fitxers[i].isDirectory()) { // Comprovem si es un directori
+					System.out.print("D: " + fitxers[i] + " " + new Date(fitxers[i].lastModified()));// Si és de tipus
+																										// directori
+																										// sortirà una D
+																										// i printa la
+																										// data de
+																										// modificació
+
+					fitxerRecursiu(fitxers[i]); // Cridem de nou al métode per si hi ha una carpeta que entri i faci el
 												// mateix
-
 				} else {
-					System.out.print("F: " + llista[i] + " " + new Date(llista[i].lastModified())); // Si és de tipus
-																									// fitxer sortirà
-																									// una F i printa la data de modificació
-
+					System.out.print("F: " + fitxers[i] + " " + new Date(fitxers[i].lastModified())); // Si és de tipus
+																										// fitxer
+																										// sortirà una F
+																										// i printa la
+																										// data de
+																										// modificació
 				}
 			}
 		}
-
+		System.out.println("Fitxer importat correctament");
 	}
-	//Metode Crear fitxer
- 	static String crearFitxer(File directori) {
- 	
- 		try {
- 			PrintWriter writer = new PrintWriter("C:\\Users\\formacio\\Desktop\\repository\\Final.txt");
- 			writer.println(fitxerRecursiu(directori));
- 			writer.close();
- 		} catch (Exception error) {
- 			error.printStackTrace();
- 		}
- 		return "Fitxer creat";
- 	}
+
+	// Metode Crear fitxer
+	static void crearFitxer(File directori) {
+
+		try {
+			
+			File[] fitxers = directori.listFiles(); 
+			
+			FileWriter nouFitxer = new FileWriter(directori);
+		
+			BufferedWriter output = new BufferedWriter(nouFitxer);
+			
+			StringBuffer escritura = new StringBuffer();
+			
+			if (fitxers != null) { // Comprova si fitxer tipus array no és nul
+
+				for (File llistaFitxers: fitxers ) {
+
+					if (llistaFitxers.isDirectory()) { // Comprovem si es un directori
+						fitxerRecursiu(directori);
+						escritura.append("D"+(llistaFitxers));
+
+					} else {
+						escritura.append("F"+(llistaFitxers));
+					}
+				}
+			}
+			
+			nouFitxer.close();
+		} // Si existe un problema al escribir cae aqui
+		catch (IOException error) {
+			System.out.println("Error a l'escriure");
+		}
+		
+	}
 
 }
