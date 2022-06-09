@@ -8,15 +8,20 @@ public class App {
 	public static void main(String[] args) {
 
 		File directori = new File("c:/"); // Creem objecte del directori a llistar en aquest cas la carpeta C
-		String[] llistaFitxers = directori.list(); // El metode list retorna una Array de String amb el nom de tots els arxius
-											// i directoris que té l'objecte que hem creat
-		Arrays.sort(llistaFitxers); // Ordena alfabéticament l'Array mitjançant el métode Arrays.sort
-
-		for (int i = 0; i < llistaFitxers.length; i++) { // Pritem el contingut que té l'array per ordre
-			System.out.println(llistaFitxers[i]);
-		}
 		
+		ordenaLlista (directori); 
 		
 	}
+	
+	//Metode per ordenar llistat de fitxers
+	public static void ordenaLlista (File directori) {
+		
+		String[] llistaFitxers = directori.list(); // El metode list retorna una Array de String amb el nom de tots els arxius
+		// i directoris que té l'objecte que hem creat
+		Arrays.sort(llistaFitxers); // Ordena alfabéticament l'Array mitjançant el métode Arrays.sort
 
-}
+			for (int i = 0; i < llistaFitxers.length; i++) { // Pritem el contingut que té l'array per ordre
+				System.out.println(llistaFitxers[i]);
+			}
+
+	}
