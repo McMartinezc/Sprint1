@@ -3,52 +3,12 @@ package n1ex3;
 import java.util.ArrayList;
 
 public class App {
-	
-	//Declarem variables
-	private ArrayList<Integer> llistaNotes = new ArrayList<Integer>();
-	private int num;
-	
-	//Metode contructor
-	public App(ArrayList<Integer> llistaNotes, int num) {
-		this.llistaNotes = llistaNotes;
-		this.num = num;
-	}
-	
-	public App() {
-	
-	}
-	//Metodes GETTERS i SETTERS
-	public ArrayList<Integer> getLlistaNotes() {
-		return llistaNotes;
-	}
 
-	
-	
-	//Metode per guardar al array
-	public void afegirArray() { 
-		llistaNotes.add(5);
-		llistaNotes.add(10);
-		llistaNotes.add(8);
-	}
+	public static void main(String[] args) {
 
-	//Metode per buscar al array
-	public void buscarArray() {
-		boolean encontrado =false;
-		int i;
-		
-		for (i = 0; i<= llistaNotes.size(); i++) {
-			
-			System.out.println("La teva nota és: "+i);
-		}
-		
-	}
-}
+		Integer[] intArray = { 5, 7, 9, 11, 13, 15 };
+		System.out.println("Primer element: " + intArray[0]);
+		System.out.println("Últim element: " + intArray[6]);
 
-public class Main {
-public static void main (String[] args)
-{
-Integer[] intArray = {5, 7, 9, 11, 13, 15};
-System.out.println ( "First element: " + intArray[0]);
-System.out.println ( "Last element: " + intArray[-8]);
-}
+	}
 }
