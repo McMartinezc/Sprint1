@@ -1,19 +1,40 @@
 package n1ex3;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.fail;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
 import n1ex1.Mes;
 
 class AppTest {
 
-	@Test
-	public void buscarArraytest() {
-		App app = new App();
-		app.afegirArray();
-		assert
+	App app;
+		
+	public void inicialitzarClasse() {
+		
+		app	=new App();	
 	}
+	
+	public AppTest() {
+	}
+	
+	
+    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    public void test() {
+    	
+    	inicialitzarClasse();
+      	
+    	try{
+    		    
+    		fail("Hauria de sortir l'error: ArrayIndexOutOfBoundsException");
+    	
+    	}catch (RuntimeException error){
+    		
+    		assertEquals("Expected message", error.getMessage());
+    
+    	}
 
+    }
 }
