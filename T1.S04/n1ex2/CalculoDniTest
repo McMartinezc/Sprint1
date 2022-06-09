@@ -1,16 +1,14 @@
 package n1ex2;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 import java.util.Collection;
-
-import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-@RunWith(Parameterized.class)
+@RunWith(value = Parameterized.class)
 
 class CalculoDniTest {
 	
@@ -19,27 +17,25 @@ class CalculoDniTest {
 	char lletra;
 	private CalculoDni calculodni;
 	
-	@Before
-	public void initialize() {
-		calculodni = new CalculoDni();
-	}
 	
 	//Metode constructor
 	public CalculoDniTest(int numDni, char lletra) {
 		this.NumDni = numDni;
 		this.lletra= lletra; //Resultat esperat
+		calculodni = new CalculoDni();
 	}
 	
 	@Parameterized.Parameters
 	public static Collection resultatsDni() {
 		return Arrays.asList(new Object[][] {
-			{'Y', 40527087},
+			{ 40527087, 'Y'},
 			{'S', 41001310}});
 		}
 	
 	@Test
 	public void TestCalculoDni() {
-		assertEquals(lletra, calculodni.calculRestoDNI(NumDni));
+		
+		assertEquals(calculodni.calculRestoDNI(NumDni), lletra);
 	}
 
 }
