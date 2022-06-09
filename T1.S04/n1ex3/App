@@ -6,9 +6,9 @@ public class App {
 
 	public static void main(String[] args) {
 
-		Integer[] intArray = { 5, 7, 9, 11, 13, 15 };
-		System.out.println("Primer element: " + intArray[0]);
-		System.out.println("Últim element: " + intArray[6]);
+		Integer[] llistaNums = { 5, 7, 9, 11, 13, 15 };
+		System.out.println("Primer element: " + llistaNums[0]);
+		System.out.println("Últim element: " + llistaNums[6]);
 
 	}
 }
