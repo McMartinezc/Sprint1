@@ -15,27 +15,36 @@ class CalculoDniTest {
 	//Declaració variable
 	private int NumDni;
 	char lletra;
-	private CalculoDni calculodni;
 	
 	
 	//Metode constructor
 	public CalculoDniTest(int numDni, char lletra) {
 		this.NumDni = numDni;
 		this.lletra= lletra; //Resultat esperat
-		calculodni = new CalculoDni();
+
 	}
 	
 	@Parameterized.Parameters
 	public static Collection resultatsDni() {
 		return Arrays.asList(new Object[][] {
-			{ 40527087, 'Y'},
-			{'S', 41001310}});
+			
+			{40527087,'Y'},
+			{41001310,'S'},
+			{40527087,'Y'},
+			{41001310,'S'},
+			{40527087,'Y'},
+			{41001310,'S'},
+			{40527087,'Y'},
+			{41001310,'S'},
+			{40527087,'Y'},
+			{41001310,'S'}});
 		}
 	
 	@Test
 	public void TestCalculoDni() {
-		
-		assertEquals(calculodni.calculRestoDNI(NumDni), lletra);
+		CalculoDni calculodni = new CalculoDni ();
+		assertEquals(lletra, calculodni.calculRestoDNI(NumDni));
 	}
+	
 
 }
