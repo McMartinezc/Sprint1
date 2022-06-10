@@ -1,40 +1,17 @@
 package n1ex3;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-import org.junit.Assert;
 import org.junit.Test;
-
-import n1ex1.Mes;
 
 class AppTest {
 
-	App app;
-		
-	public void inicialitzarClasse() {
-		
-		app	=new App();	
-	}
-	
-	public AppTest() {
-	}
-	
-	
-    @Test(expected = ArrayIndexOutOfBoundsException.class)
-    public void test() {
-    	
-    	inicialitzarClasse();
-      	
-    	try{
-    		    
-    		fail("Hauria de sortir l'error: ArrayIndexOutOfBoundsException");
-    	
-    	}catch (RuntimeException error){
-    		
-    		assertEquals("Expected message", error.getMessage());
-    
-    	}
 
-    }
+	@Test(expected = ArrayIndexOutOfBoundsException.class)
+	public void atTestThrowException() throws Exception{
+	    
+		App apptest = new App(2); //inicialitzem la classe 
+
+	    apptest.indexArray(8); //Cridem al métode per tal que ens digui si hi ha un element a la posició 8 per provocar l'error 
+
+
+	}
 }
