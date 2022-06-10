@@ -1,14 +1,42 @@
 package n1ex3;
 
-import java.util.ArrayList;
-
 public class App {
 
-	public static void main(String[] args) {
+		
+	//Declarem variables
+	private Integer[] llistaNums;
+	private int num;
 
-		Integer[] llistaNums = { 5, 7, 9, 11, 13, 15 };
-		System.out.println("Primer element: " + llistaNums[0]);
-		System.out.println("Últim element: " + llistaNums[6]);
-
+	
+	//Metode constructor
+	public App(int num) {
+		llistaNums = new Integer[num];
+	
 	}
+	
+    //Metode que retorna l'index que hi ha a l'array segons el index si el trova sino salta error
+	public int indexArray(int index){
+		int i;
+	
+		
+		if (index < llistaNums.length){
+		
+			i = llistaNums[index];
+			
+		}else{
+			
+			throw new ArrayIndexOutOfBoundsException();
+		}
+		
+		return i;
+	}
+	
+	//Metode que printa l'element de la primera i última posició
+	public void posicioLlista() {
+		System.out.println("Primer element de la llista: " + llistaNums[0]);
+		System.out.println("Últim element de la llista: " + llistaNums[6]); // Provoquem un error
+																			// ArrayIndexOutOfBoundsException ja que
+																			// surt de tamany del llistat
+	}
+
 }
