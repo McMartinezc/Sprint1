@@ -24,6 +24,7 @@ class CalculoDniTest {
 
 	}
 	
+	//Parametritzem les dades que faran el test
 	@Parameterized.Parameters
 	public static Collection resultatsDni() {
 		return Arrays.asList(new Object[][] {
@@ -40,11 +41,10 @@ class CalculoDniTest {
 			{41001310,'S'}});
 		}
 	
+	//Testegem el metode creat amb les dades parametritzades
 	@Test
 	public void TestCalculoDni() {
 		CalculoDni calculodni = new CalculoDni ();
 		assertEquals(lletra, calculodni.calculRestoDNI(NumDni));
 	}
 	
-
-}
