@@ -90,3 +90,73 @@ public class App {
 	}
 
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+package n1ex3;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.Date;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		// Ruta del directori
+		File file = new File("C:\\Users\\psyen\\Desktop\\ITAcademy");
+
+		fitxerRecursiu(file);
+		crearArxiu(file);
+
+	}
+
+	public static void fitxerRecursiu(File file) {
+
+		if (file.exists()) {// Si existeix
+
+			for (String string : file.list()) { // Imprimeix el llistat que hi ha dins
+
+				if (file.isDirectory()) {// Si es un directori
+					System.out.println("D: " + string + " ");// Si és de tipus
+					// directori sortirà una D i printa la data de modificació
+
+				} else {
+					System.out.println("F: " + string + " " ); // Si és de tipus fitxer
+																	// sortirà una F i
+																	// printa la data
+
+				}
+			}
+		}
+
+	}
+
+	// Creem un arxiu que reb per parametre la llista
+	public static void crearArxiu(File file) {
+		FileWriter flwriter = null;
+
+		try {
+			flwriter = new FileWriter("C:\\Users\\psyen\\Desktop\\T1.S03\\text.txt");
+			BufferedWriter bfwriter = new BufferedWriter(flwriter);
+
+			for (String string : file.list()) {
+				bfwriter.write(string + " ");
+				fitxerRecursiu(file);
+			}
+			bfwriter.close();
+			System.out.println("Arxiu creat correctament");
+
+		} catch (IOException error) {
+			error.printStackTrace();
+		} finally {
+			if (flwriter != null) {
+				try {
+					flwriter.close();
+				} catch (IOException error) {
+					error.printStackTrace();
+				}
+			}
+		}
+	}
+}
