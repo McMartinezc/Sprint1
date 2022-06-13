@@ -14,8 +14,6 @@ public class App {
 
 		fitxerRecursiu(directori);
 
-		System.out.println("Fitxer importat correctament");
-
 	}
 
 	public static void fitxerRecursiu(File directori) {
@@ -25,18 +23,28 @@ public class App {
 
 		if (llista != null) { // Comprova si la llista no és nul.la
 
-			for (int i = 0; i < llista.length; i++) { 
-				System.out.println(" " + llista[i].getName());
+			for (int i = 0; i < llista.length; i++) {
+				// System.out.println(" " + llista[i].getName());
 
 				if (llista[i].isDirectory()) {
-					System.out.print("D: " + llista[i] + " " + new Date(llista[i].lastModified()));// Si és de tipus
-															// directori sortirà una D i printa la data de modificació
-																		
+					System.out.println("D: " + llista[i] + " " + new Date(llista[i].lastModified()));// Si és de tipus
+																										// directori
+																										// sortirà
+																										// una D i
+																										// printa la
+																										// data de
+																										// modificació
 					fitxerRecursiu(llista[i]); // Cridem de nou al métode per si hi ha una carpeta que entri i faci el
 												// mateix
 
 				} else {
-					System.out.print("F: " + llista[i] + " " + new Date(llista[i].lastModified())); // Si és de tipus fitxer sortirà una F  i printa la data
+					System.out.println("F: " + llista[i] + " " + new Date(llista[i].lastModified())); // Si és de tipus
+																										// fitxer
+																										// sortirà
+																										// una F i
+																										// printa la
+																										// data de
+																										// modificació
 
 				}
 			}
