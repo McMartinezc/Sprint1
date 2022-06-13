@@ -17,8 +17,7 @@ public class App {
 			System.out.println("Introdueix la ruta del fitxer: ");
 			String ruta = input.nextLine();
 			
-			File nouFitxer = new File (ruta);
-			FileReader llegirFitxer = new FileReader(nouFitxer);
+			FileReader llegirFitxer = new FileReader(ruta);
 			BufferedReader br = new BufferedReader(llegirFitxer);
 			String linea = br.readLine();
 						
@@ -36,5 +35,4 @@ public class App {
 		}
 	}
 }
-
 
