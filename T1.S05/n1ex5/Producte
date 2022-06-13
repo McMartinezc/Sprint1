@@ -1,0 +1,31 @@
+package n1ex5;
+
+import java.io.Serializable;
+
+public class Producte implements Serializable {
+
+	// Declarem atributs
+	private String nom;
+	private float preu;
+
+	// Metode constructor
+	public Producte(String nom, float preu) {
+		this.nom = nom;
+		this.preu = preu;
+	}
+
+	// Metodes GETTERS i SETTERS
+	public String getNom() {
+		return nom;
+	}
+
+	public double getPreu() {
+		return preu;
+	}
+
+	// Metode toString
+	public String toString() {
+		return "Nom: " + nom + " ," + "Preu: " + preu;
+	}
+
+}
