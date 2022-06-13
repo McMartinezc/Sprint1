@@ -1,36 +1,41 @@
 package n1ex4;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class App {
-	
-	public static void main(String[] args) {
+
+	public static void main(String[] args) throws IOException {
+
+		mostraContingut(introInfo("Introdueix ruta on vols buscar arxiu: "));
+	}
+
+	public static void mostraContingut(String nomArxiu) {
 
 		try {
-			Scanner input = new Scanner(System.in);
-			
-			System.out.println("Introdueix la ruta del fitxer: ");
-			String ruta = input.nextLine();
-			
-			FileReader llegirFitxer = new FileReader(ruta);
-			BufferedReader br = new BufferedReader(llegirFitxer);
-								
-			while(linea = br.readLine() !=null) {
-				
-				System.out.println(linea);
+			String cadena;
+			FileReader arxiu = new FileReader(nomArxiu);
+			BufferedReader br = new BufferedReader(arxiu);
+			while ((cadena = br.readLine()) != null) {
+				System.out.println(cadena);
 			}
-			
 			br.close();
-			
-		}catch(FileNotFoundException error) {
-			error.getMessage();
-		}catch(IOException error) {
-			error.getMessage();
+		} catch (IOException error) {
+			error.printStackTrace();
 		}
+
+	}
+
+	// Metode sol.licita info a l'usuari
+	static String introInfo(String missatge) {
+		Scanner input = new Scanner(System.in);
+		System.out.println(missatge);
+		return input.nextLine();// Retorna String
 	}
 }
-
