@@ -15,16 +15,16 @@ public class App {
 			Scanner input = new Scanner(System.in);
 			
 			System.out.println("Introdueix la ruta del fitxer: ");
-			String nomFitxer = input.nextLine();
+			String ruta = input.nextLine();
 			
-			File nouFitxer = new File (nomFitxer);
+			File nouFitxer = new File (ruta);
 			FileReader llegirFitxer = new FileReader(nouFitxer);
 			BufferedReader br = new BufferedReader(llegirFitxer);
-		
+			String linea = br.readLine();
 						
-			while(br.readLine() !=null) {
+			while(linea !=null) {
 				
-				System.out.println(br.readLine());
+				System.out.println(linea);
 			}
 			
 			br.close();
@@ -36,4 +36,5 @@ public class App {
 		}
 	}
 }
+
 
