@@ -10,7 +10,7 @@ public class App {
 	public static void main(String[] args) {
 
 		File directori = new File("C:\\Users\\formacio\\Desktop\\repository"); // Creem objecte del directori a llistar
-																				// d'una carpeta
+											// d'una carpeta
 
 		fitxerRecursiu(directori);
 
@@ -19,7 +19,7 @@ public class App {
 	public static void fitxerRecursiu(File directori) {
 
 		File[] llista = directori.listFiles(); // El metode list retorna una Array de String amb el nom de tots els
-												// arxius i directoris que té l'objecte que hem creat
+							// arxius i directoris que té l'objecte que hem creat
 
 		if (llista != null) { // Comprova si la llista no és nul.la
 
@@ -35,16 +35,16 @@ public class App {
 																										// data de
 																										// modificació
 					fitxerRecursiu(llista[i]); // Cridem de nou al métode per si hi ha una carpeta que entri i faci el
-												// mateix
+									// mateix
 
 				} else {
 					System.out.println("F: " + llista[i] + " " + new Date(llista[i].lastModified())); // Si és de tipus
-																										// fitxer
-																										// sortirà
-																										// una F i
-																										// printa la
-																										// data de
-																										// modificació
+																// fitxer
+																// sortirà
+																// una F i
+																// printa la
+																// data de
+																// modificació
 
 				}
 			}
