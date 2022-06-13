@@ -1,12 +1,10 @@
 package n1ex4;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class App {
@@ -15,18 +13,22 @@ public class App {
 
 		try {
 			Scanner input = new Scanner(System.in);
-			System.out.println("Introdueix el nom del fitxer: ");
-			String nomFitxer = input.nextLine();
-			String sortida = "C:\\Users\\psyen\\Desktop\\T1.S03\\";
-			FileInputStream fitxer = new FileInputStream(sortida + nomFitxer + ".txt");
-			InputStreamReader osw = new InputStreamReader(fitxer);
-			BufferedReader br = new BufferedReader(osw);
 			
-			while(br.ready()) {
-				String linea = br.readLine();
-				System.out.println(linea);
+			System.out.println("Introdueix la ruta del fitxer: ");
+			String nomFitxer = input.nextLine();
+			
+			File nouFitxer = new File (nomFitxer);
+			FileReader llegirFitxer = new FileReader(nouFitxer);
+			BufferedReader br = new BufferedReader(llegirFitxer);
+		
+						
+			while(br.readLine() !=null) {
+				
+				System.out.println(br.readLine());
 			}
-
+			
+			br.close();
+			
 		}catch(FileNotFoundException error) {
 			error.getMessage();
 		}catch(IOException error) {
@@ -34,7 +36,4 @@ public class App {
 		}
 	}
 }
-}
-
-	
 
