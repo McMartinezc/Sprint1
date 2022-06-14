@@ -1,0 +1,14 @@
+package n1ex2;
+
+public class App {
+	
+	
+	public static void main(String[] args) {
+
+		
+		Persona pers1 = new Persona ("Ana", "Garcia", 20);
+		NoGenericMethods <Persona> pers2 = new NoGenericMethods <Persona>();
+		
+		
+	}
+}
