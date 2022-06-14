@@ -5,10 +5,13 @@ public class App {
 	
 	public static void main(String[] args) {
 
+		NoGenericMethods <Persona> pers1 = new NoGenericMethods <Persona>(null, null, null);
+		NoGenericMethods <Persona> pers2 = new NoGenericMethods <Persona>(null, null, null);
+		NoGenericMethods <Persona> pers3 = new NoGenericMethods <Persona>(null, null, null);
 		
-		Persona pers1 = new Persona ("Ana", "Garcia", 20);
-		NoGenericMethods <Persona> pers2 = new NoGenericMethods <Persona>();
+		pers1.imprimirDades("Mc", "Martínez", 37);
 		
-		
+		System.out.println(pers1.imprimirDades("Mc", "Martínez", 37));
 	}
+	
 }
