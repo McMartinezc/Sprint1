@@ -1,0 +1,61 @@
+package n1ex1;
+
+import java.util.ArrayList;
+
+public class NoGenericMethods{ 
+	
+
+	//Creem objectes
+	Producte prod1 = new Producte("Samarreta", "Blau");
+	Producte prod2 = new Producte("Texans", "Negre");
+	Producte prod3 = new Producte("Jersei", "Vermell");
+	
+	// Declarem atributs
+	private float stock;
+	private ArrayList<Producte> llistaProductes;
+
+	// Metodes Contructors
+	public NoGenericMethods() {
+
+		llistaProductes = new ArrayList<Producte>();
+	}
+
+	// Metodes GETTERS i SETTERS
+	public ArrayList<Producte> getLlistaProductes() {
+		return llistaProductes;
+	}
+
+	// Metode afegim Producte
+	public void afegirProducte(Producte producte) {
+
+		llistaProductes.add(producte);
+
+	}
+
+	// Metode buscar producte
+	public int buscarProducte(String nom) {
+
+		boolean encontrado = false;
+		int i = 0, indexProducte = -1;
+
+		while ((i < llistaProductes.size()) && (encontrado == false)) {
+			if (nom.equals(llistaProductes.get(i).getNom())) {
+				indexProducte = i;
+				encontrado = true;
+			}
+			i++;
+		}
+
+		return indexProducte;
+	}
+}	
+	
+	class App{
+		
+	
+		public static void main(String[] args) {
+	
+
+			
+		}
+	}
