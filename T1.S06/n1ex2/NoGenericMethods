@@ -1,53 +1,52 @@
 package n1ex2;
 
 
-
-public class NoGenericMethods<T> { //T,U,K para clases genericas
+public class NoGenericMethods <T> { //T,U,K declaración para clases genericas
 	
 	//Declaració de variables
-	private T primero;
+	private T nom;
+	private T cognom;
+	private T edat;
 	
 	//Metode constructor
-	public NoGenericMethods() {
-		primero = null;
+	public NoGenericMethods(T nom, T cognom, T edat) {
+		this.nom = nom;
+		this.cognom= cognom;
+		this.edat = edat;
 	}
 	
 	//Metodes GETTER i SETTER
-	public void setPrimero (T nuevoValor) {
-		primero = nuevoValor;
+	public T getNom() {
+		return nom;
+	}
+
+	public void setNom(T nom) {
+		this.nom = nom;
+	}
+
+	public T getCognom() {
+		return cognom;
+	}
+
+	public void setCognom(T cognom) {
+		this.cognom = cognom;
+	}
+
+	public T getEdat() {
+		return edat;
+	}
+
+	public void setEdat(T edat) {
+		this.edat = edat;
+	}
+
+	public String toString() {
+		return "Nom: " + nom + ", Cognom: " + cognom + ", Edat: " + edat + "";
 	}
 	
-	public T getPrimero() {
-		return primero;
+	//Metode propi de la classe generic
+	public <T> String imprimirDades (T nom, T cognom, T edat ) {
+		return "Nom: " + nom + ", Cognom: " + cognom + ", Edat: " + edat + "";
 	}
 	
 }
-	class App{
-		
-	
-		public static void main(String[] args) {
-	
-			NoGenericMethods<String> una = new NoGenericMethods <String>();
-	
-			una.setPrimero("Juan"); //Donem valor 
-			System.out.println(una.getPrimero());
-			
-			Persona pers1 = new Persona ("Ana");
-			NoGenericMethods <Persona> pers2 = new NoGenericMethods <Persona>();
-			
-			pers2.setPrimero(pers1);
-			System.out.println(pers2.getPrimero());
-			
-			NoGenericMethods<Integer> num =new NoGenericMethods<Integer>();
-			
-		}
-	}
- 
-	class Persona{
-		
-		private String nom;
-		
-		public Persona(String nom) {
-			this.nom = nom;
-		}
-	}
