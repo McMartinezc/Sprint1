@@ -1,0 +1,25 @@
+package n1ex1;
+
+public class Producte {
+
+
+		// Declarem atributs
+		private String nom;
+		private String color;
+
+		// Metode constructor
+		public Producte(String nom, String color) {
+			this.nom = nom;
+			this.color = color;
+		}
+
+		// Metodes GETTERS i SETTERS
+		public String getNom() {
+			return nom;
+		}
+
+		public String getColor() {
+			return color;
+		}
+
+	}
