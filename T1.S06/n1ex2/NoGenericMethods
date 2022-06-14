@@ -1,0 +1,53 @@
+package n1ex2;
+
+
+
+public class NoGenericMethods<T> { //T,U,K para clases genericas
+	
+	//Declaració de variables
+	private T primero;
+	
+	//Metode constructor
+	public NoGenericMethods() {
+		primero = null;
+	}
+	
+	//Metodes GETTER i SETTER
+	public void setPrimero (T nuevoValor) {
+		primero = nuevoValor;
+	}
+	
+	public T getPrimero() {
+		return primero;
+	}
+	
+}
+	class App{
+		
+	
+		public static void main(String[] args) {
+	
+			NoGenericMethods<String> una = new NoGenericMethods <String>();
+	
+			una.setPrimero("Juan"); //Donem valor 
+			System.out.println(una.getPrimero());
+			
+			Persona pers1 = new Persona ("Ana");
+			NoGenericMethods <Persona> pers2 = new NoGenericMethods <Persona>();
+			
+			pers2.setPrimero(pers1);
+			System.out.println(pers2.getPrimero());
+			
+			NoGenericMethods<Integer> num =new NoGenericMethods<Integer>();
+			
+		}
+	}
+ 
+	class Persona{
+		
+		private String nom;
+		
+		public Persona(String nom) {
+			this.nom = nom;
+		}
+	}
