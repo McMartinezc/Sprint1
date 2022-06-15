@@ -1,0 +1,13 @@
+package n2ex2;
+
+public class App {
+	
+	public static void main(String[] args) {
+
+		NoGenericMethods <Persona> pers1 = new NoGenericMethods <Persona>("mc", "martinez", 37);
+		NoGenericMethods <String> pers2 = new NoGenericMethods <String>(null, null, null);
+		NoGenericMethods <Integer> pers3 = new NoGenericMethods <Integer>(null, null, null);
+	
+		
+	}
+}
