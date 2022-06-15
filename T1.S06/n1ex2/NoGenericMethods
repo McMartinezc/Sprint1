@@ -9,10 +9,10 @@ public class NoGenericMethods <T> { //T,U,K declaración para clases genericas
 	private T edat;
 	
 	//Metode constructor
-	public NoGenericMethods(T nom, T cognom, T edat) {
-		this.nom = nom;
-		this.cognom= cognom;
-		this.edat = edat;
+	public NoGenericMethods(T dada, T dada2, T valor) {
+		nom = dada;
+		cognom= dada2;
+		edat = valor;
 	}
 	
 	//Metodes GETTER i SETTER
@@ -20,33 +20,31 @@ public class NoGenericMethods <T> { //T,U,K declaración para clases genericas
 		return nom;
 	}
 
-	public void setNom(T nom) {
-		this.nom = nom;
+	public void setNom(T dada) {
+		nom = dada;
 	}
 
 	public T getCognom() {
 		return cognom;
 	}
 
-	public void setCognom(T cognom) {
-		this.cognom = cognom;
+	public void setCognom(T dada2) {
+		cognom = dada2;
 	}
 
 	public T getEdat() {
 		return edat;
 	}
 
-	public void setEdat(T edat) {
-		this.edat = edat;
+	public void setEdat(T valor) {
+		edat = valor;
 	}
 
-	public String toString() {
-		return "Nom: " + nom + ", Cognom: " + cognom + ", Edat: " + edat + "";
-	}
 	
-	//Metode propi de la classe generic
-	public <T> String imprimirDades (T nom, T cognom, T edat ) {
-		return "Nom: " + nom + ", Cognom: " + cognom + ", Edat: " + edat + "";
+	//Metode propi de la classe generic per printar les dades
+	public <T> String  imprimirDades (T dada, T dada2, T valor ) {
+		return "Nom: " + dada + ", Cognom: " + dada2 + ", Edat: " + valor + "";
+	
 	}
 	
 }
