@@ -2,60 +2,39 @@ package n1ex1;
 
 import java.util.ArrayList;
 
-public class NoGenericMethods{ 
-	
+public class NoGenericMethods {
 
-	//Creem objectes
-	Producte prod1 = new Producte("Samarreta", "Blau");
-	Producte prod2 = new Producte("Texans", "Negre");
-	Producte prod3 = new Producte("Jersei", "Vermell");
-	
 	// Declarem atributs
-	private float stock;
-	private ArrayList<Producte> llistaProductes;
+	private ArrayList<String> llista;
+	private String object1;
+	private String object2;
+	private String object3;
 
-	// Metodes Contructors
-	public NoGenericMethods() {
+	// Metode constructor
+	public NoGenericMethods(String object1, String object2, String object3) {
 
-		llistaProductes = new ArrayList<Producte>();
-	}
-
-	// Metodes GETTERS i SETTERS
-	public ArrayList<Producte> getLlistaProductes() {
-		return llistaProductes;
-	}
-
-	// Metode afegim Producte
-	public void afegirProducte(Producte producte) {
-
-		llistaProductes.add(producte);
+		llista = new ArrayList<String>();
+		this.object1 = object1;
+		this.object2 = object2;
+		this.object3 = object3;
 
 	}
 
-	// Metode buscar producte
-	public int buscarProducte(String nom) {
+	// Metodes propis de la classe
+	public void afegirArray() {
 
-		boolean encontrado = false;
-		int i = 0, indexProducte = -1;
+		llista.add(object1);
+		llista.add(object2);
+		llista.add(object3);
 
-		while ((i < llistaProductes.size()) && (encontrado == false)) {
-			if (nom.equals(llistaProductes.get(i).getNom())) {
-				indexProducte = i;
-				encontrado = true;
-			}
-			i++;
-		}
-
-		return indexProducte;
 	}
-}	
-	
-	class App{
-		
-	
-		public static void main(String[] args) {
-	
 
-			
+	public void mostrar() {
+
+		for (String llista : llista) {
+
+			System.out.println(llista);
+
 		}
 	}
+}
