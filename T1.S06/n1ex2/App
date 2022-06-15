@@ -6,12 +6,14 @@ public class App {
 	public static void main(String[] args) {
 
 		NoGenericMethods <Persona> pers1 = new NoGenericMethods <Persona>(null, null, null);
-		NoGenericMethods <Persona> pers2 = new NoGenericMethods <Persona>(null, null, null);
-		NoGenericMethods <Persona> pers3 = new NoGenericMethods <Persona>(null, null, null);
+		NoGenericMethods <String> pers2 = new NoGenericMethods <String>(null, null, null);
+		NoGenericMethods <Integer> pers3 = new NoGenericMethods <Integer>(null, null, null);
 		
-		pers1.imprimirDades("Mc", "Martínez", 37);
 		
-		System.out.println(pers1.imprimirDades("Mc", "Martínez", 37));
+		
+		System.out.println(pers1.imprimirDades("Mc", "Martínez", 37)); //Imprimim persona1 tipus classe Persona
+		System.out.println(pers2.imprimirDades("Garcia", 40 , "David")); //Imprimim persona2 tipus classe String
+		System.out.println(pers3.imprimirDades(50, 60, 180)); //Imprimim persona3 tipus Integer
 	}
 	
 }
