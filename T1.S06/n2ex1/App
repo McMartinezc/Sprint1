@@ -1,0 +1,16 @@
+package n2ex2;
+
+public class App {
+	
+	public static void main(String[] args) {
+
+		NoGenericMethods <Persona> pers1 = new NoGenericMethods <Persona>(null, null, null);
+		NoGenericMethods <String> pers2 = new NoGenericMethods <String>(null, null, null);
+		NoGenericMethods <Integer> pers3 = new NoGenericMethods <Integer>(null, null, null);
+		
+		System.out.println(pers1.imprimirDades("Mc", "Martinez", 37)); //Imprimimim persona1 tipus classe persona no afecta que el nom estigui en String ja que els atributs en la classe persona és de tipus String
+		System.out.println(pers2.imprimirDades("Garcia", 40 , "David")); //Imprimim persona2 tipus classe String
+		System.out.println(pers3.imprimirDades("50", 60, 180)); //Imprimim persona3 tipus Integer pero la primera dada és tipus String per tant ho recull amb String
+	}
+	
+}
