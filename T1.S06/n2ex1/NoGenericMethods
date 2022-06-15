@@ -1,0 +1,48 @@
+package n2ex2;
+
+public class NoGenericMethods <T> {
+	//Declaració de variables
+	private String nom;
+	private T cognom;
+	private T edat;
+	
+	//Metode constructor
+	public NoGenericMethods(String nom, T dada2, T valor) {
+		this.nom = nom;
+		cognom= dada2;
+		edat = valor;
+	}
+	
+	//Metodes GETTER i SETTER
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public T getCognom() {
+		return cognom;
+	}
+
+	public void setCognom(T dada2) {
+		cognom = dada2;
+	}
+
+	public T getEdat() {
+		return edat;
+	}
+
+	public void setEdat(T valor) {
+		edat = valor;
+	}
+
+	
+	//Metode propi de la classe generic per printar les dades
+	public <T> String  imprimirDades (String nom, T dada2, T valor ) {
+		return "Nom: " + nom + ", Cognom: " + dada2 + ", Edat: " + valor + "";
+	
+	}
+	
+}
