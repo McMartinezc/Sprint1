@@ -1,13 +1,13 @@
 package n2ex1;
 
-public class NoGenericMethods <T> {
+public class GenericMethods <T> {
 	//Declaració de variables
 	private String nom;
 	private T cognom;
 	private T edat;
 	
 	//Metode constructor
-	public NoGenericMethods(String nom, T dada2, T valor) {
+	public GenericMethods(String nom, T dada2, T valor) {
 		this.nom = nom;
 		cognom= dada2;
 		edat = valor;
