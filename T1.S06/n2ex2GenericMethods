@@ -2,7 +2,7 @@ package n2ex2;
 
 import java.util.ArrayList;
 
-public class NoGenericMethods <T> {
+public class GenericMethods <T> {
 	
 	//Declaració de variables
 	private T nom;
@@ -11,7 +11,7 @@ public class NoGenericMethods <T> {
 	
 	
 	//Metode constructor
-	public NoGenericMethods(T dada, T dada2, T valor) {
+	public GenericMethods(T dada, T dada2, T valor) {
 		nom = dada;
 		cognom= dada2;
 		edat = valor;
