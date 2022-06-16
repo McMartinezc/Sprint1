@@ -5,9 +5,9 @@ public class App {
 	
 	public static void main(String[] args) {
 
-		NoGenericMethods <Persona> pers1 = new NoGenericMethods <Persona>(null, null, null);
-		NoGenericMethods <String> pers2 = new NoGenericMethods <String>(null, null, null);
-		NoGenericMethods <Integer> pers3 = new NoGenericMethods <Integer>(null, null, null);
+		GenericMethods <Persona> pers1 = new GenericMethods <Persona>(null, null, null);
+		GenericMethods <String> pers2 = new GenericMethods <String>(null, null, null);
+		GenericMethods <Integer> pers3 = new GenericMethods <Integer>(null, null, null);
 		
 		
 		
