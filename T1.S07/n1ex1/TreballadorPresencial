@@ -1,0 +1,23 @@
+package n1ex1;
+
+public class TreballadorPresencial extends Treballador{
+	
+	// Declarem atributs
+	private static float benzina;
+	
+
+	// Metodes Contructors
+	public TreballadorPresencial(String nom, String cognom, float preuHora) {
+		super(nom, cognom, preuHora);
+		benzina =10 ;
+		
+	}
+	
+	// Metode propis heredat
+	@Override
+	public float calcularSou(float horaTreballada)  {
+	
+		return (horaTreballada*preuHora) + benzina;
+	}
+
+}
