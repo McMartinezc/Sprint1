@@ -1,0 +1,22 @@
+package n1ex1;
+
+
+public class TreballadorOnline extends Treballador {
+	
+	private final float INTERNET;
+
+	// Metodes Contructors
+	public TreballadorOnline(String nom, String cognom, float preuHora, float INTERNET) {
+		super(nom, cognom, preuHora);
+		this.INTERNET = 10;
+	
+		
+	}
+	// Metode propis heredat
+	@Override
+	public float calcularSou(float horaTreballada)  {
+		
+		return (horaTreballada*preuHora) + INTERNET;
+	}
+	
+}
