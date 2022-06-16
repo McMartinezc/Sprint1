@@ -3,17 +3,45 @@ package n1ex1;
 public class NoGenericMethods {
 
 	// Declarem atributs
-	private String object1;
-	private String object2;
-	private String object3;
+	private Persona pers1;
+	private Persona pers2;
+	private Persona pers3;
 
 	// Metode constructor
-	public NoGenericMethods(String object1, String object2, String object3) {
+	public NoGenericMethods(Persona pers1, Persona pers2, Persona pers3) {
 
-		this.object1 = object1;
-		this.object2 = object2;
-		this.object3 = object3;
+		this.pers1 = pers1;
+		this.pers2 = pers2;
+		this.pers3 = pers3;
 
 	}
+	//Metodes GETTERS i SETTERS
+
+	public Persona getPers1() {
+		return pers1;
+	}
+
+	public void setPers1(Persona pers1) {
+		this.pers1 = pers1;
+	}
+
+	public Persona getPers2() {
+		return pers2;
+	}
+
+	public void setPers2(Persona pers2) {
+		this.pers2 = pers2;
+	}
+
+	public Persona getPers3() {
+		return pers3;
+	}
+
+	public void setPers3(Persona pers3) {
+		this.pers3 = pers3;
+	}
+	
+
+
 
 }
