@@ -1,0 +1,18 @@
+package n1ex1;
+
+public class App {
+	
+	public static void main (String[] args) {
+		
+		TreballadorOnline tOnline = new TreballadorOnline("MC","Martinez",20, 10);
+		TreballadorPresencial tPresencial = new TreballadorPresencial ("Maria", "Martinez", 30);
+		
+		
+		
+		System.out.println(tOnline.calcularSou(50));
+		
+		System.out.println(tPresencial.calcularSou(40));
+		
+	}
+
+}
