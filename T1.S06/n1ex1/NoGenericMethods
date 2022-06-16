@@ -1,11 +1,8 @@
 package n1ex1;
 
-import java.util.ArrayList;
-
 public class NoGenericMethods {
 
 	// Declarem atributs
-	private ArrayList<String> llista;
 	private String object1;
 	private String object2;
 	private String object3;
@@ -13,28 +10,10 @@ public class NoGenericMethods {
 	// Metode constructor
 	public NoGenericMethods(String object1, String object2, String object3) {
 
-		llista = new ArrayList<String>();
 		this.object1 = object1;
 		this.object2 = object2;
 		this.object3 = object3;
 
 	}
 
-	// Metodes propis de la classe
-	public void afegirArray() {
-
-		llista.add(object1);
-		llista.add(object2);
-		llista.add(object3);
-
-	}
-
-	public void mostrar() {
-
-		for (String llista : llista) {
-
-			System.out.println(llista);
-
-		}
-	}
 }
