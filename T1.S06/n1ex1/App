@@ -1,11 +1,34 @@
+
 package n1ex1;
+
+import java.util.Scanner;
 
 public class App {
 	
 	public static void main(String[] args) {
 		
-		NoGenericMethods objectes = new NoGenericMethods("objecte3", "objecte1", "objecte2");
+		
+		NoGenericMethods objecte = new NoGenericMethods(new Persona ("A","B",30), new Persona ("C","D",31), new Persona ("E","F",32));
+		
+		introInfo("Persona núm 1: "+objecte.getPers1());
+		introInfo("Persona núm 2: "+objecte.getPers2());
+		introInfo("Persona núm 3: "+objecte.getPers3());
+		
+		objecte.setPers1(new Persona ("G","H",33));
+		
+		objecte.setPers2(new Persona ("I","J",34));
+		
+		objecte.setPers3(new Persona ("K","K",35));
+	}
+	
+	
+	////// ENTRADA DE DATOS
 
+	// Metodes introduïr informació
+	static String introInfo(String missatge) {
+		Scanner input = new Scanner(System.in);
+		System.out.println(missatge);
+		return input.nextLine();// Retorna String
 	}
 
 }
