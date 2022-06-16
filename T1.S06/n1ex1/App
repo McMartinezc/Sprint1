@@ -5,9 +5,7 @@ public class App {
 	public static void main(String[] args) {
 		
 		NoGenericMethods objectes = new NoGenericMethods("objecte3", "objecte1", "objecte2");
-		
-		objectes.afegirArray();
-		objectes.mostrar();
+
 	}
 
 }
