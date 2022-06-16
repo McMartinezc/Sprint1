@@ -1,7 +1,7 @@
 package n1ex2;
 
 
-public class NoGenericMethods <T> { //T,U,K declaración para clases genericas
+public class GenericMethods <T> { //T,U,K declaración para clases genericas
 	
 	//Declaració de variables
 	private T nom;
@@ -9,7 +9,7 @@ public class NoGenericMethods <T> { //T,U,K declaración para clases genericas
 	private T edat;
 	
 	//Metode constructor
-	public NoGenericMethods(T dada, T dada2, T valor) {
+	public GenericMethods(T dada, T dada2, T valor) {
 		nom = dada;
 		cognom= dada2;
 		edat = valor;
