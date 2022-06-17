@@ -1,16 +1,22 @@
 package n2ex1;
 
+
 public class App {
 	
 	public static void main(String[] args) {
-
-		GenericMethods <Persona> pers1 = new GenericMethods <Persona>(null, null, null);
-		GenericMethods <String> pers2 = new GenericMethods <String>(null, null, null);
-		GenericMethods <Integer> pers3 = new GenericMethods <Integer>(null, null, null);
 		
-		System.out.println(pers1.imprimirDades("Mc", "Martinez", 37)); //Imprimimim persona1 tipus classe persona no afecta que el nom estigui en String ja que els atributs en la classe persona és de tipus String
-		System.out.println(pers2.imprimirDades("Garcia", 40 , "David")); //Imprimim persona2 tipus classe String
-		System.out.println(pers3.imprimirDades("50", 60, 180)); //Imprimim persona3 tipus Integer pero la primera dada és tipus String per tant ho recull amb String
+		GenericMethods <Persona> pers1 = new GenericMethods <Persona> (new Persona ("A","B",30), new Persona ("C","D",31), (34));
+		GenericMethods <String> pers2 = new GenericMethods <String> ("MC", "Martinez",37);
+		GenericMethods <Integer> pers3 = new GenericMethods <Integer>(40, 37, 37);
+		
+		//En el cas de pers1 és del tipus Persona, el metode constructor de la classe genèrica rep dos atributs tipus T i un int, al crear l'objecte pers1 en fa crear dos tipus Persona i un int
+		//En el cas de pers2, que és de tipus String, els dos primers al ser del tipus T agafa que siguin Strings però l'últim ha de ser int com marca el metode constructor de la classe GenericMethods
+		//En el cas de pers3, que és de tipus int, els dos atributs que són T es transformen en int i el tercer serà int com marca el constructor.
+		
+		
+		pers1.imprimirDades();
+		pers2.imprimirDades();
+		pers3.imprimirDades();
 	}
 	
 }
