@@ -1,25 +1,26 @@
 package n2ex1;
 
-public class GenericMethods <T> {
+public class GenericMethods <T>  {
+	
 	//Declaració de variables
-	private String nom;
+	private T nom;
 	private T cognom;
-	private T edat;
+	private int edat;
 	
 	//Metode constructor
-	public GenericMethods(String nom, T dada2, T valor) {
-		this.nom = nom;
+	public GenericMethods(T dada, T dada2, int edat) {
+		nom = dada;
 		cognom= dada2;
-		edat = valor;
+		this.edat = edat;
 	}
 	
 	//Metodes GETTER i SETTER
-	public String getNom() {
+	public T getNom() {
 		return nom;
 	}
 
-	public void setNom(String nom) {
-		this.nom = nom;
+	public void setNom(T dada) {
+		nom = dada;
 	}
 
 	public T getCognom() {
@@ -30,19 +31,20 @@ public class GenericMethods <T> {
 		cognom = dada2;
 	}
 
-	public T getEdat() {
+	public int getEdat() {
 		return edat;
 	}
 
-	public void setEdat(T valor) {
-		edat = valor;
+	public void setEdat(int edat) {
+		this.edat = edat;
 	}
 
-	
 	//Metode propi de la classe generic per printar les dades
-	public <T> String  imprimirDades (String nom, T dada2, T valor ) {
-		return "Nom: " + nom + ", Cognom: " + dada2 + ", Edat: " + valor + "";
-	
+	public <T> void  imprimirDades () {
+			
+		System.out.println( "Nom: " + nom + ", Cognom: " + cognom + ", Edat: " + edat + "");
+		
 	}
-	
+
+		
 }
