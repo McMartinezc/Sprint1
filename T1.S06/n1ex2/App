@@ -10,9 +10,9 @@ public class App {
 		GenericMethods <Integer> pers3 = new GenericMethods <Integer>(40, 37, 37);
 		
 		
-		System.out.println(pers1.printarDades());
-		System.out.println(pers2.printarDades());
-		System.out.println(pers3.printarDades());
+		pers1.imprimirDades();
+		pers2.imprimirDades();
+		pers3.imprimirDades();
 		
 	}
 	
