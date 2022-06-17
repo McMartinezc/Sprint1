@@ -5,15 +5,15 @@ public class App {
 	
 	public static void main(String[] args) {
 
-		GenericMethods <Persona> pers1 = new GenericMethods <Persona>(null, null, null);
-		GenericMethods <String> pers2 = new GenericMethods <String>(null, null, null);
-		GenericMethods <Integer> pers3 = new GenericMethods <Integer>(null, null, null);
+		GenericMethods <Persona> pers1 = new GenericMethods <Persona> (new Persona("MC", "Martinez",37), new Persona("MC", "Martinez",37), new Persona("MC", "Martinez",37));
+		GenericMethods <String> pers2 = new GenericMethods <String>("MC", "Martinez"," 37");
+		GenericMethods <Integer> pers3 = new GenericMethods <Integer>(40, 37, 37);
 		
 		
+		System.out.println(pers1.printarDades());
+		System.out.println(pers2.printarDades());
+		System.out.println(pers3.printarDades());
 		
-		System.out.println(pers1.imprimirDades("Mc", "Martínez", 37)); //Imprimim persona1 tipus classe Persona
-		System.out.println(pers2.imprimirDades("Garcia", 40 , "David")); //Imprimim persona2 tipus classe String
-		System.out.println(pers3.imprimirDades(50, 60, 180)); //Imprimim persona3 tipus Integer
 	}
 	
 }
