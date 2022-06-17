@@ -40,11 +40,10 @@ public class GenericMethods <T> { //T,U,K declaración para clases genericas
 		edat = valor;
 	}
 
-	
-	//Metode propi de la classe generic per printar les dades
-	public <T> String  imprimirDades (T dada, T dada2, T valor ) {
-		return "Nom: " + dada + ", Cognom: " + dada2 + ", Edat: " + valor + "";
-	
+	//Metode que printa
+	public <T>String  printarDades() {
+		return "GenericMethods [nom=" + nom + ", cognom=" + cognom + ", edat=" + edat + "]";
 	}
-	
+
+		
 }
