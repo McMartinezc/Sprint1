@@ -1,18 +1,83 @@
 package n1ex1;
 
-public class App {
-	
-	public static void main (String[] args) {
-		
-		TreballadorOnline tOnline = new TreballadorOnline("MC","Martinez",20, 10);
-		TreballadorPresencial tPresencial = new TreballadorPresencial ("Maria", "Martinez", 30);
-		
-		
-		
-		System.out.println(tOnline.calcularSou(50));
-		
-		System.out.println(tPresencial.calcularSou(40));
-		
-	}
+import java.util.Scanner;
 
+public class App {
+
+	public static void main(String[] args) {
+		
+		//Declaració de variables
+		int opcions, tipusTreballador;
+		float horaTreballada, preuHora, sou;
+				
+			do {
+				opcions= menuEntrada();
+					
+				if (opcions ==1) { //Sortir programa
+					System.out.println("Has sortit del programa.");	
+						
+				}else { 
+						
+					switch (opcions){
+						
+					case 2://Calcul Sou Treballador
+							tipusTreballador = introInfoInt("Introdueix tipus de treballador: ");
+							horaTreballada = introInfoFloat("Introdueix hores treballades del treballador: ");
+							preuHora = introInfoFloat("Introdueix preu Hora: ");
+							sou= calculSou(tipusTreballador, horaTreballada, preuHora);
+							System.out.println("El sou del treballador és: "+sou);
+						break;
+								
+			
+					}
+				}
+			}while (opcions !=1);
+
+	}
+	
+	//Metode calcula Sou
+	static float calculSou(int tipusTreballador,float horaTreballada, float preuHora) {
+		float sou = 0;
+		
+		switch(tipusTreballador) {
+		
+		case 1://Treballador
+			Treballador treballador = new Treballador ("","",30);
+			sou =treballador.calcularSou(horaTreballada);
+			break;
+			 
+		case 2://Treballador Online
+			TreballadorOnline treballadorOnline = new TreballadorOnline ("","",30, 10);
+			sou = treballadorOnline.calcularSou(horaTreballada);
+			break;
+		case 3://Treballador Presencial
+			TreballadorPresencial treballadorPresencial = new TreballadorPresencial ("","",30);
+			sou =treballadorPresencial.calcularSou(horaTreballada);
+			break;
+		}
+		return sou;
+	}
+	
+	//Metode menu info entrada
+	static int menuEntrada() {
+		int opcions = introInfoInt("Escull:\n1.Sortir de l'aplicació"
+								+ "\n2.Calcul Sou Treballador ");
+		return opcions;
+	}
+	
+	//////ENTRADA DE DATOS
+	
+	//Metodes introduïr informació 
+
+	
+	static int introInfoInt(String missatge) {
+		Scanner input = new Scanner(System.in); 
+		System.out.println(missatge);
+		return input.nextInt();//Retorna Int
+	}
+	static float introInfoFloat(String missatge) {
+		Scanner input = new Scanner(System.in); 
+		System.out.println(missatge);
+		return input.nextFloat();//Retorna float
+	}
 }
