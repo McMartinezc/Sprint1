@@ -1,5 +1,6 @@
 package n1ex1;
 
+
 public class TreballadorPresencial extends Treballador{
 	
 	// Declarem atributs
@@ -17,7 +18,7 @@ public class TreballadorPresencial extends Treballador{
 	@Override
 	public float calcularSou(float horaTreballada)  {
 	
-		return (horaTreballada*preuHora) + benzina;
+		return super.calcularSou(horaTreballada)+ benzina;
 	}
 
 }
