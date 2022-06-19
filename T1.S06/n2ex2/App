@@ -3,11 +3,20 @@ package n2ex2;
 public class App {
 	
 	public static void main(String[] args) {
-
-		GenericMethods <Persona> pers1 = new GenericMethods <Persona>("mc", "martinez", 37);
-		GenericMethods <String> pers2 = new GenericMethods <String>(null, null, null);
-		GenericMethods <Integer> pers3 = new GenericMethods <Integer>(null, null, null);
-	
 		
+	
+	GenericArray <Persona> llistaGenerica = new GenericArray <Persona>();
+	llistaGenerica.afegirElement(new Persona ("MC","MC",37));
+	llistaGenerica.imprimirArray();
+	
+	GenericArray<Integer> llistaGenericaNums= new GenericArray<Integer>();
+	llistaGenericaNums.afegirElement(8);
+	llistaGenericaNums.imprimirArray();
+	
+	GenericArray<String> llistaGenericaString = new GenericArray<String>();
+	llistaGenericaString.afegirElement("Cadena de paraules");
+	llistaGenericaString.imprimirArray();
+	
 	}
+	
 }
