@@ -1,21 +1,17 @@
 package n2ex2;
 
-import java.util.ArrayList;
-
-public class GenericMethods <T> {
+public class GenericMethods <T>  {
 	
 	//Declaració de variables
 	private T nom;
 	private T cognom;
 	private T edat;
 	
-	
 	//Metode constructor
 	public GenericMethods(T dada, T dada2, T valor) {
 		nom = dada;
 		cognom= dada2;
 		edat = valor;
-		
 	}
 	
 	//Metodes GETTER i SETTER
@@ -42,14 +38,13 @@ public class GenericMethods <T> {
 	public void setEdat(T valor) {
 		edat = valor;
 	}
-}
-	
+
 	//Metode propi de la classe generic per printar les dades
-	public  ArrayList<T>llista  imprimirDades (T dada, T dada2, T valor) {
+	public <T> void  imprimirDades () {
+			
+		System.out.println( "Nom: " + nom + ", Cognom: " + cognom + ", Edat: " + edat + "");
 		
-		return llista;
-		
-	
 	}
-	
+
+		
 }
