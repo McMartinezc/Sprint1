@@ -2,16 +2,22 @@ package n2ex2;
 
 import java.util.ArrayList;
 
-public class GenericArray <E>{
+public class GenericArray <T>{
 	
-	private ArrayList<E> llista;
+	private ArrayList<T> llista;
 	
 	public GenericArray () {
 		
-		llista = new ArrayList<E>();
+		llista = new ArrayList<T>();
 	}
 	
-	public void afegirElement (E element) {
+	public void afegirElement (T element) {
 		llista.add(element);
+	}
+	
+	public void imprimirArray() {
+		for(int i=0; i<llista.size(); i++) {
+			System.out.println(llista.get(i));
+		}
 	}
 }
