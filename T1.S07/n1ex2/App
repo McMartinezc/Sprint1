@@ -1,0 +1,100 @@
+package n1ex2;
+
+import java.util.Scanner;
+
+public class App {
+
+	@SuppressWarnings("deprecation")
+	public static void main(String[] args) {
+		
+		//Declaració de variables
+		int opcions, tipusTreballador;
+		float horaTreballada, preuHora, sou;
+		String nom, cognom;
+				
+			do {
+				opcions= menuEntrada();
+					
+				if (opcions ==1) { //Sortir programa
+					System.out.println("Has sortit del programa.");	
+						
+				}else { 
+						
+					switch (opcions){
+						
+					case 2://Calcul Sou Treballador
+							tipusTreballador = introInfoInt("Introdueix tipus de treballador: ");
+							horaTreballada = introInfoFloat("Introdueix hores treballades del treballador: ");
+							preuHora = introInfoFloat("Introdueix preu Hora: ");
+							sou= calculSou(tipusTreballador, horaTreballada, preuHora);
+							System.out.println("El sou del treballador és: "+sou);
+						break;
+					case 3:	//Demanar info Treballador
+							nom = introInfo("Introdueix nom del treballador");
+							cognom = introInfo("Introdueix cognom del treballador");
+							preuHora = introInfoFloat("Introdueix Preu hora del treballador");
+							Treballador treballador = new Treballador (nom,cognom,preuHora);
+							treballador.retornarNom(); //Metode obsolet
+							System.out.println(treballador.toString());
+			
+					}
+				}
+			}while (opcions !=1);
+
+	}
+	
+	//Metode calcula Sou
+	static float calculSou(int tipusTreballador,float horaTreballada, float preuHora) {
+		float sou = 0;
+		
+		switch(tipusTreballador) {
+		
+		case 1://Treballador
+			Treballador treballador = new Treballador ("","",30);
+			sou =treballador.calcularSou(horaTreballada);
+			break;
+			 
+		case 2://Treballador Online
+			TreballadorOnline treballadorOnline = new TreballadorOnline ("","",30, 10);
+			treballadorOnline.retornarNom();//Metode obsolet classe pare
+			treballadorOnline.retornarInternet(); //Metode obsolet
+			sou = treballadorOnline.calcularSou(horaTreballada);
+			break;
+		case 3://Treballador Presencial
+			TreballadorPresencial treballadorPresencial = new TreballadorPresencial ("","",30);
+			treballadorPresencial.retornarNom();//Metode obsolet classe pare
+			treballadorPresencial.retornarBenzina();//Metode obsolet
+			sou =treballadorPresencial.calcularSou(horaTreballada);
+			break;
+		}
+		return sou;
+	}
+	
+	//Metode menu info entrada
+	static int menuEntrada() {
+		int opcions = introInfoInt("Escull:\n1.Sortir de l'aplicació"
+								+ "\n2.Calcul Sou Treballador "
+								+"\n3.Introduïr treballador");
+		return opcions;
+	}
+	
+	//////ENTRADA DE DATOS
+	
+	//Metodes introduïr informació 
+	static String introInfo(String missatge) {
+		Scanner input = new Scanner(System.in);
+		System.out.println(missatge);
+		return input.nextLine();//Retorna String
+	}
+	
+	static int introInfoInt(String missatge) {
+		Scanner input = new Scanner(System.in); 
+		System.out.println(missatge);
+		return input.nextInt();//Retorna Int
+	}
+	static float introInfoFloat(String missatge) {
+		Scanner input = new Scanner(System.in); 
+		System.out.println(missatge);
+		return input.nextFloat();//Retorna float
+	}
+}
