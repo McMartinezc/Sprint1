@@ -1,0 +1,66 @@
+package n1ex2;
+
+
+
+public class Treballador {
+	
+	// Declarem atributs
+	protected String nom;
+	protected String cognom;
+	protected float preuHora;
+	
+
+	// Metodes Contructors
+	public Treballador(String nom, String cognom, float preuHora) {
+		this.nom = nom;
+		this.cognom = cognom;
+		this.preuHora = preuHora;
+	}
+
+	// Metodes GETTERS i SETTERS
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getCognom() {
+		return cognom;
+	}
+
+	public void setCognom(String cognom) {
+		this.cognom = cognom;
+	}
+
+	public double getPreuHora() {
+		return preuHora;
+	}
+
+	public void setPreuHora(float preuHora) {
+		this.preuHora = preuHora;
+	}
+	//Metodes Obsolets
+	@Deprecated
+	 public String retornarNom() {
+	      return this.nom;
+	 }
+	
+
+	// Metode propis
+	public float calcularSou(float horaTreballada)  {
+	
+		return horaTreballada*preuHora;
+	}
+
+	//Metode tostring
+	@Override
+	public String toString() {
+		return "Treballador [nom=" + nom + ", cognom=" + cognom + ", preuHora=" + preuHora + "]";
+	}
+
+	
+	
+
+}
