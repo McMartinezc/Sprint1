@@ -28,7 +28,7 @@ public class App {
 
 		llistaFiltrada = filtrarLlista(llistaMesos);
 
-		System.out.println("Llista amb els mesos amb la lletra o: ");
+		System.out.println("Llista amb els mesos filtrats: ");
 		llistaFiltrada.forEach(m -> System.out.println(m)); // Imprimim la llista filtrada
 
 	}
@@ -36,10 +36,10 @@ public class App {
 	static List<String> filtrarLlista(ArrayList<String> llistaMesos) {
 
 		List<String> llistaFiltrada = llistaMesos.stream().filter(m -> m.contains("o")) // Utilitzem filter per
-																								// filtrar al llistat el
-																								// nom del mes que
-																								// tingui la lletra o
-				.collect(Collectors.toList()); // Guarda a una llista els noms dels mesos que hagin passat el fitre
+												// filtrar al llistat el
+												// nom del mes que
+												// tingui la lletra o
+						.collect(Collectors.toList()); // Guarda a una llista els noms dels mesos que hagin passat el fitre
 
 		return llistaFiltrada;
 
