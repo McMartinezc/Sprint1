@@ -12,7 +12,7 @@ public class App {
 		ArrayList<String> llistaMesos = new ArrayList<String>();
 		List<String> llistaFiltrada;
 
-		// Creem objectes mesos i afegim a la ArrayList
+		// Creem i afegim a la ArrayList
 		llistaMesos.add("Gener");
 		llistaMesos.add("Febrer");
 		llistaMesos.add("Març");
