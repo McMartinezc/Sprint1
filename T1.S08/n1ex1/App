@@ -1,0 +1,47 @@
+package n1ex1;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		// Declarem variables
+		ArrayList<Mes> llistaMesos = new ArrayList<Mes>();
+		List<Mes> llistaFiltrada;
+
+		// Creem objectes mesos i afegim a la ArrayList
+		llistaMesos.add(new Mes("Gener"));
+		llistaMesos.add(new Mes("Febrer"));
+		llistaMesos.add(new Mes("Març"));
+		llistaMesos.add(new Mes("Abril"));
+		llistaMesos.add(new Mes("Maig"));
+		llistaMesos.add(new Mes("Juny"));
+		llistaMesos.add(new Mes("Juliol"));
+		llistaMesos.add(new Mes("Setembre"));
+		llistaMesos.add(new Mes("Octubre"));
+		llistaMesos.add(new Mes("Novembre"));
+		llistaMesos.add(new Mes("Desembre"));
+
+		llistaFiltrada = filtrarLlista(llistaMesos);
+
+		System.out.println("Llista amb els mesos amb la lletra o: ");
+		llistaFiltrada.forEach(m -> System.out.println(m)); // Imprimim la llista filtrada
+
+	}
+	//Metode amb lambda per filtrar els elements d'una llista
+	static List<Mes> filtrarLlista(ArrayList<Mes> llistaMesos) {
+
+		List<Mes> llistaFiltrada = llistaMesos.stream().filter(m -> m.getName().contains("o")) // Utilitzem filter per
+																								// filtrar al llistat el
+																								// nom del mes que
+																								// tingui la lletra o
+				.collect(Collectors.toList()); // Guarda a una llista els noms dels mesos que hagin passat el fitre
+
+		return llistaFiltrada;
+
+	}
+
+}
