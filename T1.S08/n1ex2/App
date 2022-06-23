@@ -20,6 +20,7 @@ public class App {
 		llistaMesos.add("Maig");
 		llistaMesos.add("Juny");
 		llistaMesos.add("Juliol");
+		llistaMesos.add("Agost");
 		llistaMesos.add("Setembre");
 		llistaMesos.add("Octubre");
 		llistaMesos.add("Novembre");
@@ -36,10 +37,10 @@ public class App {
 	static List<String> filtrarLlista(ArrayList<String> llistaMesos) {
 
 		List<String> llistaFiltrada = llistaMesos.stream().filter(m -> (m.length() >5 &&  m.contains("o"))) // Utilitzem filter per
-																								// filtrar al llistat el
-																								// nom del mes que
-																								// tingui la lletra o i més de 5 lletres
-				.collect(Collectors.toList()); // Guarda a una llista els noms dels mesos que hagin passat el fitre
+														// filtrar al llistat el
+														// nom del mes que
+														// tingui la lletra o i més de 5 lletres
+								.collect(Collectors.toList()); // Guarda a una llista els noms dels mesos que hagin passat el fitre
 
 		return llistaFiltrada;
 
