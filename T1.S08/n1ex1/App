@@ -20,6 +20,7 @@ public class App {
 		llistaMesos.add("Maig");
 		llistaMesos.add("Juny");
 		llistaMesos.add("Juliol");
+		llistaMesos.add("Agost");
 		llistaMesos.add("Setembre");
 		llistaMesos.add("Octubre");
 		llistaMesos.add("Novembre");
