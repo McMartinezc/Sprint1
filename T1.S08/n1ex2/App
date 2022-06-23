@@ -1,0 +1,48 @@
+package n1ex2;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		// Declarem variables
+		ArrayList<String> llistaMesos = new ArrayList<String>();
+		List<String> llistaFiltrada;
+
+		// Creem  mesos i afegim a la ArrayList
+		llistaMesos.add("Gener");
+		llistaMesos.add("Febrer");
+		llistaMesos.add("Març");
+		llistaMesos.add("Abril");
+		llistaMesos.add("Maig");
+		llistaMesos.add("Juny");
+		llistaMesos.add("Juliol");
+		llistaMesos.add("Setembre");
+		llistaMesos.add("Octubre");
+		llistaMesos.add("Novembre");
+		llistaMesos.add("Desembre");
+
+		llistaFiltrada = filtrarLlista(llistaMesos);
+
+		System.out.println("Llista amb els mesos filtrats: ");
+		llistaFiltrada.forEach(m -> System.out.println(m)); // Imprimim la llista filtrada
+
+	}
+
+	//Metode amb lambda per filtrar els elements d'una llista
+	static List<String> filtrarLlista(ArrayList<String> llistaMesos) {
+
+		List<String> llistaFiltrada = llistaMesos.stream().filter(m -> (m.length() >5 &&  m.contains("o"))) // Utilitzem filter per
+																								// filtrar al llistat el
+																								// nom del mes que
+																								// tingui la lletra o i més de 5 lletres
+				.collect(Collectors.toList()); // Guarda a una llista els noms dels mesos que hagin passat el fitre
+
+		return llistaFiltrada;
+
+	}
+
+}
