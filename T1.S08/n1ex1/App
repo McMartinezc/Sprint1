@@ -9,21 +9,21 @@ public class App {
 	public static void main(String[] args) {
 
 		// Declarem variables
-		ArrayList<Mes> llistaMesos = new ArrayList<Mes>();
-		List<Mes> llistaFiltrada;
+		ArrayList<String> llistaMesos = new ArrayList<String>();
+		List<String> llistaFiltrada;
 
 		// Creem objectes mesos i afegim a la ArrayList
-		llistaMesos.add(new Mes("Gener"));
-		llistaMesos.add(new Mes("Febrer"));
-		llistaMesos.add(new Mes("Març"));
-		llistaMesos.add(new Mes("Abril"));
-		llistaMesos.add(new Mes("Maig"));
-		llistaMesos.add(new Mes("Juny"));
-		llistaMesos.add(new Mes("Juliol"));
-		llistaMesos.add(new Mes("Setembre"));
-		llistaMesos.add(new Mes("Octubre"));
-		llistaMesos.add(new Mes("Novembre"));
-		llistaMesos.add(new Mes("Desembre"));
+		llistaMesos.add("Gener");
+		llistaMesos.add("Febrer");
+		llistaMesos.add("Març");
+		llistaMesos.add("Abril");
+		llistaMesos.add("Maig");
+		llistaMesos.add("Juny");
+		llistaMesos.add("Juliol");
+		llistaMesos.add("Setembre");
+		llistaMesos.add("Octubre");
+		llistaMesos.add("Novembre");
+		llistaMesos.add("Desembre");
 
 		llistaFiltrada = filtrarLlista(llistaMesos);
 
@@ -32,9 +32,9 @@ public class App {
 
 	}
 	//Metode amb lambda per filtrar els elements d'una llista
-	static List<Mes> filtrarLlista(ArrayList<Mes> llistaMesos) {
+	static List<String> filtrarLlista(ArrayList<String> llistaMesos) {
 
-		List<Mes> llistaFiltrada = llistaMesos.stream().filter(m -> m.getName().contains("o")) // Utilitzem filter per
+		List<String> llistaFiltrada = llistaMesos.stream().filter(m -> m.contains("o")) // Utilitzem filter per
 																								// filtrar al llistat el
 																								// nom del mes que
 																								// tingui la lletra o
