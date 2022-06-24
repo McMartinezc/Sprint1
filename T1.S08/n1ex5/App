@@ -1,0 +1,12 @@
+package n1ex5;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+		Mates functionalInterface = () -> { return 3.1415; }; //Instància la interfície i assigna-li el valor 3.1415
+		
+		System.out.println(functionalInterface.getPiValue()); //Cridem e imprimim
+	}
+
+}
