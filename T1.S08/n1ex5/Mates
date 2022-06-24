@@ -1,0 +1,10 @@
+package n1ex5;
+
+@FunctionalInterface
+public interface Mates {
+	
+	public double getPiValue ();
+	 
+}
+//Functional Interface únicamente dispone de un método abstracto.
+//Para evitar este tipo de problemas se usa la anotación @FunctionalInterface que obliga a solo incluir un método abstracto
