@@ -1,0 +1,15 @@
+package n1ex8;
+
+import java.util.Comparator;
+
+public class App {
+
+	public static void main(String[] args) {
+	   
+		Interface interficieLambda = (String a) -> { return 
+				a = new StringBuilder(a).reverse().toString();};
+	    
+	    System.out.println( interficieLambda.reverse("Hola mundo")); 
+	 
+	    }
+}
