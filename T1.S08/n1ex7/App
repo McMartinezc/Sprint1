@@ -1,1 +1,41 @@
+package n1ex7;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class App {
+
+	public static void main(String[] args) {
+		// Declarem variables
+		ArrayList<String> llistaMesos = new ArrayList<String>();
+	
+		// Creem  mesos i afegim a la ArrayList
+		llistaMesos.add("Gener");
+		llistaMesos.add("Febrer");
+		llistaMesos.add("Març");
+		llistaMesos.add("Abril");
+		llistaMesos.add("Maig");
+		llistaMesos.add("Juny");
+		llistaMesos.add("Juliol");
+		llistaMesos.add("Agost");
+		llistaMesos.add("Setembre");
+		llistaMesos.add("Octubre");
+		llistaMesos.add("Novembre");
+		llistaMesos.add("Desembre");
+
+		ordenaLlista(llistaMesos);
+
+
+	}
+	//Metode amb lambda per ordenar per tamany
+	static void ordenaLlista(ArrayList<String> llistaMesos) {
+		llistaMesos.stream()
+		.sorted(Comparator.comparing(String::length).reversed())
+		.forEach(System.out::println);
+					
+	}
+
+}
