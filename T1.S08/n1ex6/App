@@ -33,8 +33,8 @@ public class App {
 	//Metode amb lambda per ordenar per tamany
 	static void ordenaLlista(ArrayList<String> llistaMesos) {
 
-		llistaMesos.sort(Comparator.comparing(m -> m.length()));
-		llistaMesos.forEach(m -> System.out.println(m));
+		llistaMesos.sort(Comparator.comparing ( m -> m.length()));
+		llistaMesos.forEach(System.out::println);
 
 	}
 
