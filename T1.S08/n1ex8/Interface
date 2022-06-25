@@ -1,0 +1,9 @@
+package n1ex8;
+
+@FunctionalInterface
+public interface Interface {
+
+		
+		public String reverse(String cadena);
+		 
+	}
