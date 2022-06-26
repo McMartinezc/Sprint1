@@ -1,0 +1,62 @@
+package n1ex3;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.Date;
+
+public class App {
+
+	public static void main(String[] args) throws IOException {
+	
+		
+		try {
+		// Se crea un objeto file con la ruta del directorio
+		File directorio = new File("C:\\Users\\psyen\\Desktop\\Cursos");
+		
+		
+		//Crear fitxer
+		StringBuffer sbuffer = new StringBuffer ();
+		File nouFitxer =new File ("C:\\Users\\psyen\\Desktop\\T1.S03\\text.txt");
+		FileWriter filewriter =new FileWriter(nouFitxer);
+		
+		// Se comprueba si la ruta existe
+		if (!directorio.exists()) {
+			System.out.println("La ruta " + directorio.getAbsolutePath() + " no existeix.");
+			
+		} else {
+			recorrerDirectorios(directorio, sbuffer);
+			filewriter.append(sbuffer);
+			filewriter.close(); 
+		}
+		}catch (FileNotFoundException  error) {
+			
+			System.out.println ("No existeix la ruta");
+		}
+		
+
+	}
+
+	public static void recorrerDirectorios(File directorio, StringBuffer sbuffer){
+
+		
+		// obtener todo el contenido del directorio
+		File[] lista = directorio.listFiles();
+		
+		// se recorre el directorio y se muestran
+		for (File s : lista) {
+
+			// Si es un directorio se vuelve a llamar al método
+			if (s.isDirectory()) {
+				sbuffer.append("\nDirectori -> ").append(s.getName()+ new Date(s.lastModified()));;
+				recorrerDirectorios(s, sbuffer);
+				
+			} else {
+				 sbuffer.append("\nFitxer ->  ").append(s.getName()+ new Date(s.lastModified()));
+				
+			}
+		}
+	}
+	
+}
