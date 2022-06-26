@@ -1,55 +1,43 @@
 package n1ex2;
 
 import java.io.File;
-import java.io.IOException;
 import java.sql.Date;
-import java.util.Arrays;
 
 public class App {
 
 	public static void main(String[] args) {
 
-		File directori = new File("C:\\Users\\formacio\\Desktop\\repository"); // Creem objecte del directori a llistar
-											// d'una carpeta
-
-		fitxerRecursiu(directori);
-
-	}
-
-	public static void fitxerRecursiu(File directori) {
-
-		File[] llista = directori.listFiles(); // El metode list retorna una Array de String amb el nom de tots els
-							// arxius i directoris que té l'objecte que hem creat
-
-		if (llista != null) { // Comprova si la llista no és nul.la
-
-			for (int i = 0; i < llista.length; i++) {
-				// System.out.println(" " + llista[i].getName());
-
-				if (llista[i].isDirectory()) {
-					System.out.println("D: " + llista[i] + " " + new Date(llista[i].lastModified()));// Si és de tipus
-															// directori
-															// sortirà
-															// una D i
-															// printa la
-															// data de
-															// modificació
-					fitxerRecursiu(llista[i]); // Cridem de nou al métode per si hi ha una carpeta que entri i faci el
-									// mateix
-
-				} else {
-					System.out.println("F: " + llista[i] + " " + new Date(llista[i].lastModified())); // Si és de tipus
-																// fitxer
-																// sortirà
-																// una F i
-																// printa la
-																// data de
-																// modificació
-
-				}
-			}
+		// Se crea un objeto file con la ruta del directorio
+		File directorio = new File("C:\\Users\\psyen\\Desktop\\Cursos");
+		
+		// Se comprueba si la ruta existe
+		if (!directorio.exists()) {
+		
+			System.out.println("La ruta " + directorio.getAbsolutePath() + " no existeix.");
+		}else {
+			recorrerDirectorios(directorio);
 		}
-
 	}
 
+	public static void recorrerDirectorios( File directorio) {
+	
+		
+		// obtener todo el contenido del directorio
+		File[] lista = directorio.listFiles();
+		
+		// se recorre el directorio y se muestran
+		for (File s : lista) {
+			
+			// Si es un directorio se vuelve a llamar al método
+			if (s.isDirectory()) {
+				System.out.println("Directori -> "+ s.getName() + new Date (s.lastModified()));
+				recorrerDirectorios(s);
+			}
+			else {
+				System.out.println("Fitxer ->  " + s.getName() + new Date (s.lastModified()));
+			}
+		
+		}
+		
+	}
 }
