@@ -1,4 +1,5 @@
 # Exercicis
+Mirar que haya instalado el jdk de java
 
 CMD
 
