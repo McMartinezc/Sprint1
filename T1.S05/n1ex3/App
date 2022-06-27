@@ -13,12 +13,12 @@ public class App {
 		
 		try {
 		// Se crea un objeto file con la ruta del directorio
-		File directorio = new File("C:\\Users\\psyen\\Desktop\\Cursos");
+		File directorio = new File(args[0]); 
 		
 		
 		//Crear fitxer
 		StringBuffer sbuffer = new StringBuffer ();
-		File nouFitxer =new File ("C:\\Users\\psyen\\Desktop\\T1.S03\\text.txt");
+		File nouFitxer =new File (args[0]+"\\text.txt"); //Afegirem el fitxer a la mateixa ruta que utilitzem pel directori
 		FileWriter filewriter =new FileWriter(nouFitxer);
 		
 		// Se comprueba si la ruta existe
