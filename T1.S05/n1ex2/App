@@ -8,7 +8,7 @@ public class App {
 	public static void main(String[] args) {
 
 		// Se crea un objeto file con la ruta del directorio
-		File directorio = new File("C:\\Users\\psyen\\Desktop\\Cursos");
+		File directorio = new File(args[0]); //Al executar al cmd posarem la ruta que volem
 		
 		// Se comprueba si la ruta existe
 		if (!directorio.exists()) {
