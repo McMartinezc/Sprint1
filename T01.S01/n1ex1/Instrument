@@ -6,6 +6,11 @@ public abstract class Instrument{
 	System.out.println("Inicialitzant Instrument");
 	}
 	
+	//Bloc d'inicialització no static, s'inicialitza en instaciar la classe
+	{
+	System.out.println("Inicialitzant no static Instrument");
+	}
+	
 	//Declarem atributs
 	protected String nom;
 	protected float preu;
