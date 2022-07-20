@@ -8,7 +8,7 @@ public class Cotxe {
 	private final int POTENCIA; //Valor és final no és pot assignar un altre valor, no és pot sobreescriure
 	
 	//Metode constructor 
-	public Cotxe () {//No reb cap parametre ja que són atributs finals i els modificariem
+	public Cotxe (int POTENCIA) {//Li podem passar un valor per paràmetre al constructor. D'aquesta manera tots els objectes cotxe poden tenir potències diferents
 		model = "Model del cotxe"; // Al ser un atribut que pertany a la classe l'assignem un valor
 		POTENCIA = 100;//Assignem el valor que serà el mateix per la classe
 	}
