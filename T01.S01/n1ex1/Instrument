@@ -1,6 +1,10 @@
 package n1ex1;
 
 public abstract class Instrument{
+	//Bloc d'inicialització static, inicialitza en carregar la classe
+	static{
+	System.out.println("Inicialitzant Instrument");
+	}
 	
 	//Declarem atributs
 	protected String nom;
